@@ -184,12 +184,46 @@
         }
 
         function updateScore() {
-            let score = 0;
-            checklist.forEach(item => {
-                if (document.getElementById(`c${item.id}`).checked) score += item.weight;
-            });
-            document.getElementById('score').textContent = score;
-        }
+    let score = 0;
+    checklist.forEach(item => {
+        if (document.getElementById(`c${item.id}`).checked) score += item.weight;
+    });
+    
+    const scoreEl = document.getElementById('score');
+    const scoreBox = document.getElementById('score-box');
+    const btn = document.getElementById('assessment-btn');
+    
+    scoreEl.textContent = score;
+
+    // Remove all possible color classes first
+    scoreBox.classList.remove('bg-red-600', 'bg-yellow-500', 'bg-emerald-600', 
+                              'border-red-700', 'border-yellow-600', 'border-emerald-700');
+    
+    btn.classList.remove('bg-red-600', 'bg-yellow-500', 'bg-emerald-600', 
+                         'hover:bg-red-700', 'hover:bg-yellow-600', 'hover:bg-emerald-700');
+
+    if (score >= 85) {
+        // Green
+        scoreBox.classList.add('bg-emerald-600', 'border-emerald-700');
+        btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+        scoreEl.style.color = 'white';
+        btn.style.color = 'white';
+    } 
+    else if (score >= 50) {
+        // Yellow
+        scoreBox.classList.add('bg-yellow-500', 'border-yellow-600');
+        btn.classList.add('bg-yellow-500', 'hover:bg-yellow-600');
+        scoreEl.style.color = 'white';
+        btn.style.color = 'white';
+    } 
+    else {
+        // Red
+        scoreBox.classList.add('bg-red-600', 'border-red-700');
+        btn.classList.add('bg-red-600', 'hover:bg-red-700');
+        scoreEl.style.color = 'white';
+        btn.style.color = 'white';
+    }
+}
 
         function resetAssessment() {
             checklist.forEach(item => {
@@ -607,7 +641,7 @@
                                         </div>
 
                                         <!-- Big Readiness Score - 3/12 = 1/4 width -->
-                                        <div id="score-box" class="md:col-span-3 bg-red-600 border border-red-700 rounded-3xl p-8 flex flex-col justify-center transition-colors duration-300">
+                                        <div id="score-box" class="md:col-span-3 bg-red-600 border border-red-700 rounded-3xl p-8 flex flex-col justify-center transition-all duration-300">
     <p class="text-xs uppercase tracking-widest text-white/80 mb-3 text-center">Readiness Score</p>
     <div id="score" class="text-7xl font-bold text-white tabular-nums text-center">0</div>
 </div>
@@ -617,8 +651,9 @@
 
                                 <!-- Green Button at the very bottom -->
                                 <div class="mt-12 pt-10 border-t flex justify-end">
-                                    <button id="assessment-btn" onclick="window.open('https://izvarmal.github.io/downtown_proposals/Corridor-Transformation-Landing-Page.html', '_blank')" 
-        class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-3xl font-semibold flex items-center gap-x-2 transition-colors duration-300">
+                                    <button id="assessment-btn" 
+        onclick="window.open('https://izvarmal.github.io/downtown_proposals/Corridor-Transformation-Landing-Page.html', '_blank')"
+        class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-3xl font-semibold flex items-center gap-x-2 transition-all duration-300">
     <i class="fa-solid fa-file-export"></i>
     Get Your District's Assessment
 </button>
@@ -644,13 +679,15 @@
         }
 
         window.onload = function() {
-            renderModules();
-            renderDetailedSteps();
-            setTimeout(() => {
-                renderChecklist();
-                updateScore();
-            }, 100);
-        };
+    renderModules();
+    renderDetailedSteps();
+    
+    // Wait a bit longer for DOM to be fully ready
+    setTimeout(() => {
+        renderChecklist();
+        updateScore();
+    }, 300);
+};
              function scrollToFrameworkHeader() {
             const header = document.getElementById('framework-header');
             if (header) {
