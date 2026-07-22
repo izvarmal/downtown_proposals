@@ -213,8 +213,8 @@
         // Yellow
         scoreBox.classList.add('bg-yellow-500', 'border-yellow-600');
         btn.classList.add('bg-yellow-500', 'hover:bg-yellow-600');
-        scoreEl.style.color = 'black';
-        btn.style.color = 'black';
+        scoreEl.style.color = 'white';
+        btn.style.color = 'white';
     } 
     else {
         // Red
@@ -679,13 +679,15 @@
         }
 
         window.onload = function() {
-            renderModules();
-            renderDetailedSteps();
-            setTimeout(() => {
-                renderChecklist();
-                updateScore();
-            }, 100);
-        };
+    renderModules();
+    renderDetailedSteps();
+    
+    // Wait a bit longer for DOM to be fully ready
+    setTimeout(() => {
+        renderChecklist();
+        updateScore();
+    }, 300);
+};
              function scrollToFrameworkHeader() {
             const header = document.getElementById('framework-header');
             if (header) {
