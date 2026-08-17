@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  STOREFRONT LENS — a client-side storefront diagnostic & design tool
+  ============================================================================
+  README (how to open and use this app)
+
+  WHAT IT IS
+    A zero-backend, zero-API, zero-paid-service web app that helps a small
+    business owner evaluate and improve their storefront's curb appeal.
+    Everything runs in the browser using vanilla HTML/CSS/JS and the Canvas
+    API. No data ever leaves the device: images are read locally with the
+    File API, analyzed with plain pixel math, and (optionally) cached in
+    localStorage purely so your last session reloads instantly.
+
+  HOW TO OPEN
+    Just double-click index.html (or serve the folder with any static file
+    server) and open it in a modern desktop or mobile browser. No build
+    step, no npm install, no internet connection required after the page
+    itself has loaded.
+
+  HOW TO USE IT (suggested order, but every tool also works on its own)
+    1. Storefront Score   — upload 1-3 photos (facade / sign / entrance) and
+                             click "Analyze Storefront" to get an overall
+                             0-100 score, three sub-scores, and a heat-map of
+                             where a passer-by's eye lands in the first
+                             three seconds.
+    2. One Big Decision   — answer three quick questions about your business
+                             and get exactly three prioritized, illustrated
+                             moves to make.
+    3. Sign Simulator     — mock up new sign wording/typography/material on
+                             top of a real photo of your storefront and drag
+                             it into place.
+    4. Budget Blueprint   — a printable, one-page brief with exact colors,
+                             materials, rough dimensions and three budget
+                             tiers ($500 / $2,000 / $10,000+), generated from
+                             whatever you did in steps 1-3.
+    5. Street Context     — upload photos of neighboring storefronts to see
+                             which colors are already "taken" on the block.
+    6. Night / Seasonal   — preview your storefront under different lighting
+                             conditions (evening, dusk, overcast, etc.)
+                             using deterministic Canvas filters.
+
+  FILES
+    index.html   — page structure & markup (this file)
+    styles.css   — all styling, responsive layout, print stylesheet, theme
+    app.js       — all application logic, organized into commented modules
+
+  PRIVACY / DATA
+    Uploaded photos never leave your browser. The only persistence is
+    localStorage on this device (used to restore your last session); you can
+    clear it at any time with the "Reset saved data" button in the footer.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Storefront Lens — See Your Storefront Like a Stranger Does</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="app-header">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">◧</span>
+    <div>
+      <p class="brand-title">Storefront Lens</p>
+      <p class="brand-subtitle">Diagnose &amp; improve your storefront — entirely in your browser</p>
+    </div>
+  </div>
+  <div class="header-controls">
+    <label class="pro-toggle">
+      <input type="checkbox" id="proToggle" />
+      <span>Pro (remove watermark)</span>
+    </label>
+    <button type="button" id="themeToggle" class="btn btn-ghost" aria-pressed="false">
+      <span id="themeToggleLabel">🌙 Dark mode</span>
+    </button>
+  </div>
+</header>
+
+<nav class="tabbar" role="tablist" aria-label="Storefront Lens tools">
+  <button class="tab" role="tab" id="tab-score" aria-controls="panel-score" aria-selected="true" data-panel="panel-score">1. Storefront Score</button>
+  <button class="tab" role="tab" id="tab-decisions" aria-controls="panel-decisions" aria-selected="false" tabindex="-1" data-panel="panel-decisions">2. One Big Decision</button>
+  <button class="tab" role="tab" id="tab-sign" aria-controls="panel-sign" aria-selected="false" tabindex="-1" data-panel="panel-sign">3. Sign Simulator</button>
+  <button class="tab" role="tab" id="tab-blueprint" aria-controls="panel-blueprint" aria-selected="false" tabindex="-1" data-panel="panel-blueprint">4. Budget Blueprint</button>
+  <button class="tab" role="tab" id="tab-street" aria-controls="panel-street" aria-selected="false" tabindex="-1" data-panel="panel-street">5. Street Context</button>
+  <button class="tab" role="tab" id="tab-night" aria-controls="panel-night" aria-selected="false" tabindex="-1" data-panel="panel-night">6. Night / Seasonal</button>
+</nav>
+
+<main id="main-content">
+
+  <!-- ===================================================================
+       PANEL 1 — STOREFRONT SCORE
+       =================================================================== -->
+  <section id="panel-score" class="panel" role="tabpanel" aria-labelledby="tab-score">
+    <h2>Storefront Score</h2>
+    <p class="panel-intro">Upload up to three photos — your façade, your sign, and your entrance. Storefront Lens analyzes color, contrast and clutter the way a passer-by's eye would, in about three seconds.</p>
+
+    <div class="upload-grid">
+      <div class="upload-slot" id="dropzone-facade">
+        <label for="fileFacade">Façade photo</label>
+        <input type="file" id="fileFacade" accept="image/*" />
+        <div class="upload-preview" id="preview-facade" aria-live="polite">No image selected</div>
+      </div>
+      <div class="upload-slot" id="dropzone-sign">
+        <label for="fileSign">Sign photo <span class="optional">(optional)</span></label>
+        <input type="file" id="fileSign" accept="image/*" />
+        <div class="upload-preview" id="preview-sign" aria-live="polite">No image selected</div>
+      </div>
+      <div class="upload-slot" id="dropzone-entrance">
+        <label for="fileEntrance">Entrance photo <span class="optional">(optional)</span></label>
+        <input type="file" id="fileEntrance" accept="image/*" />
+        <div class="upload-preview" id="preview-entrance" aria-live="polite">No image selected</div>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button type="button" id="btnAnalyze" class="btn btn-primary" disabled>Analyze Storefront</button>
+      <span id="analyzeStatus" class="status-text" role="status" aria-live="polite"></span>
+    </div>
+
+    <div id="scoreResults" class="score-results" hidden>
+      <div class="score-visuals">
+        <figure class="canvas-figure">
+          <figcaption>Original</figcaption>
+          <canvas id="canvasOriginal" tabindex="0"></canvas>
+        </figure>
+        <figure class="canvas-figure">
+          <figcaption>3-second heat-map <span class="hint">(where the eye lands first)</span></figcaption>
+          <canvas id="canvasHeatmap" tabindex="0"></canvas>
+        </figure>
+      </div>
+
+      <div class="score-card" id="scoreCard" aria-live="polite">
+        <div class="overall-score">
+          <div class="score-ring" id="scoreRing">
+            <span id="overallScoreValue">0</span>
+          </div>
+          <p>Overall Storefront Score</p>
+        </div>
+        <ul class="subscore-list" id="subscoreList"></ul>
+        <div class="palette-row" id="palettePreview" aria-label="Dominant colors detected"></div>
+      </div>
+    </div>
+
+    <div class="action-row" id="scoreExportRow" hidden>
+      <button type="button" id="btnDownloadAnnotated" class="btn btn-secondary">Download annotated PNG</button>
+      <button type="button" id="btnDownloadSummary" class="btn btn-secondary">Download text summary</button>
+      <button type="button" id="btnShareDataUrl" class="btn btn-secondary">Get shareable data-URL</button>
+    </div>
+    <textarea id="shareUrlOutput" class="share-output" readonly hidden aria-label="Shareable data URL"></textarea>
+  </section>
+
+  <!-- ===================================================================
+       PANEL 2 — ONE BIG DECISION GENERATOR
+       =================================================================== -->
+  <section id="panel-decisions" class="panel" role="tabpanel" aria-labelledby="tab-decisions" hidden>
+    <h2>One Big Decision Generator</h2>
+    <p class="panel-intro">Answer three quick questions. Storefront Lens will turn your business identity into exactly three prioritized, illustrated moves — no guesswork.</p>
+
+    <form id="decisionForm" class="stack-form">
+      <div class="field">
+        <label for="bizCategory">Business category</label>
+        <select id="bizCategory" required>
+          <option value="cafe">Café / Coffee shop</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="retail">Retail / Boutique</option>
+          <option value="salon">Salon / Spa</option>
+          <option value="bookstore">Bookstore / Gift shop</option>
+          <option value="service">Professional services</option>
+          <option value="grocery">Grocery / Market</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="brandWords">Three to five words that describe your brand</label>
+        <input type="text" id="brandWords" placeholder="e.g. warm, modern, family-owned, bold, playful" required />
+        <p class="field-hint">Comma-separated, 3–5 words.</p>
+      </div>
+
+      <div class="field">
+        <label for="frustration">Your biggest current frustration</label>
+        <select id="frustration" required>
+          <option value="cluttered-sign">My sign is too busy / hard to read</option>
+          <option value="inconsistent-colors">My colors feel inconsistent or clashing</option>
+          <option value="messy-entrance">My entrance looks cluttered or unwelcoming</option>
+          <option value="too-much-signage">I have too many competing signs in the window</option>
+          <option value="looks-dated">The whole storefront looks dated</option>
+          <option value="blends-in">We blend into the block, nobody notices us</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Generate My Moves</button>
+    </form>
+
+    <div id="decisionResults" class="decision-results" hidden></div>
+  </section>
+
+  <!-- ===================================================================
+       PANEL 3 — SIGN SIMULATOR
+       =================================================================== -->
+  <section id="panel-sign" class="panel" role="tabpanel" aria-labelledby="tab-sign" hidden>
+    <h2>Sign Simulator</h2>
+    <p class="panel-intro">Upload a photo, type your sign wording, style it, then drag it into place.</p>
+
+    <div class="upload-grid upload-grid-1">
+      <div class="upload-slot">
+        <label for="fileSignPhoto">Storefront photo</label>
+        <input type="file" id="fileSignPhoto" accept="image/*" />
+      </div>
+    </div>
+    <div class="action-row">
+      <button type="button" id="btnUseFacadeForSign" class="btn btn-ghost">Use façade photo from Storefront Score</button>
+    </div>
+
+    <div class="sign-controls">
+      <div class="field">
+        <label for="signText">Sign wording</label>
+        <input type="text" id="signText" value="YOUR SIGN HERE" maxlength="40" />
+      </div>
+      <div class="field">
+        <label for="signFont">Font</label>
+        <select id="signFont">
+          <option value="'Arial', sans-serif">Arial</option>
+          <option value="'Georgia', serif">Georgia</option>
+          <option value="'Times New Roman', serif">Times New Roman</option>
+          <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+          <option value="'Courier New', monospace">Courier New</option>
+          <option value="Impact, 'Arial Narrow Bold', sans-serif">Impact</option>
+          <option value="Verdana, sans-serif">Verdana</option>
+          <option value="system-ui, sans-serif">System UI</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="signSize">Size (<span id="signSizeVal">64</span>px)</label>
+        <input type="range" id="signSize" min="16" max="220" value="64" />
+      </div>
+      <div class="field">
+        <label for="signColor">Color</label>
+        <input type="color" id="signColor" value="#f4b400" />
+      </div>
+      <div class="field">
+        <label for="signMaterial">Material simulation</label>
+        <select id="signMaterial">
+          <option value="flat">Flat / painted</option>
+          <option value="outlined">Outlined / channel letters</option>
+          <option value="bevel">Faux-bevel / dimensional</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="signX">Horizontal position (<span id="signXVal">50</span>%)</label>
+        <input type="range" id="signX" min="0" max="100" value="50" />
+      </div>
+      <div class="field">
+        <label for="signY">Vertical position (<span id="signYVal">30</span>%)</label>
+        <input type="range" id="signY" min="0" max="100" value="30" />
+      </div>
+    </div>
+
+    <p class="field-hint">Tip: you can also click and drag the sign directly on the photo, or focus the photo and use arrow keys.</p>
+
+    <figure class="canvas-figure">
+      <figcaption>Drag the sign into place</figcaption>
+      <canvas id="canvasSign" tabindex="0" aria-label="Storefront photo with draggable simulated sign"></canvas>
+    </figure>
+
+    <div class="action-row">
+      <button type="button" id="btnExportSignAlone" class="btn btn-secondary">Export transparent sign PNG</button>
+      <button type="button" id="btnExportSignPhoto" class="btn btn-secondary">Export full annotated photo</button>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       PANEL 4 — BUDGET BLUEPRINT
+       =================================================================== -->
+  <section id="panel-blueprint" class="panel" role="tabpanel" aria-labelledby="tab-blueprint" hidden>
+    <h2 class="no-print">Budget Blueprint</h2>
+    <p class="panel-intro no-print">A printable, one-page brief built from your Score, your Moves and your Sign Simulator choices.</p>
+
+    <div class="action-row no-print">
+      <button type="button" id="btnGenerateBlueprint" class="btn btn-primary">Generate Blueprint</button>
+      <button type="button" id="btnPrintBlueprint" class="btn btn-secondary" hidden>Print / Save as PDF</button>
+    </div>
+
+    <div id="blueprintOutput" class="blueprint-sheet" hidden></div>
+  </section>
+
+  <!-- ===================================================================
+       PANEL 5 — STREET CONTEXT SCANNER
+       =================================================================== -->
+  <section id="panel-street" class="panel" role="tabpanel" aria-labelledby="tab-street" hidden>
+    <h2>Street Context Scanner</h2>
+    <p class="panel-intro">Upload up to four photos of neighboring storefronts or the block. Storefront Lens flags colors that are already heavily used nearby and suggests safer alternatives from your own palette.</p>
+
+    <div class="upload-grid" id="streetUploadGrid">
+      <div class="upload-slot"><label for="streetFile1">Neighbor photo 1</label><input type="file" id="streetFile1" accept="image/*" /></div>
+      <div class="upload-slot"><label for="streetFile2">Neighbor photo 2 <span class="optional">(optional)</span></label><input type="file" id="streetFile2" accept="image/*" /></div>
+      <div class="upload-slot"><label for="streetFile3">Neighbor photo 3 <span class="optional">(optional)</span></label><input type="file" id="streetFile3" accept="image/*" /></div>
+      <div class="upload-slot"><label for="streetFile4">Neighbor photo 4 <span class="optional">(optional)</span></label><input type="file" id="streetFile4" accept="image/*" /></div>
+    </div>
+
+    <div class="action-row">
+      <button type="button" id="btnScanStreet" class="btn btn-primary" disabled>Scan the Block</button>
+      <span id="streetStatus" class="status-text" role="status" aria-live="polite"></span>
+    </div>
+
+    <div id="streetResults" class="street-results" hidden></div>
+  </section>
+
+  <!-- ===================================================================
+       PANEL 6 — NIGHT / SEASONAL RENDERER
+       =================================================================== -->
+  <section id="panel-night" class="panel" role="tabpanel" aria-labelledby="tab-night" hidden>
+    <h2>Night / Seasonal Renderer</h2>
+    <p class="panel-intro">Preview your storefront under different lighting conditions using deterministic Canvas filters — no AI generation involved.</p>
+
+    <div class="upload-grid upload-grid-1">
+      <div class="upload-slot">
+        <label for="fileNightPhoto">Storefront photo</label>
+        <input type="file" id="fileNightPhoto" accept="image/*" />
+      </div>
+    </div>
+    <div class="action-row">
+      <button type="button" id="btnUseFacadeForNight" class="btn btn-ghost">Use façade photo from Storefront Score</button>
+    </div>
+
+    <div class="field">
+      <label for="nightPreset">Lighting preset</label>
+      <select id="nightPreset">
+        <option value="dusk-summer">Dusk, summer</option>
+        <option value="7pm-november">7 PM, November</option>
+        <option value="overcast">Overcast day</option>
+        <option value="bright-noon">Bright noon</option>
+        <option value="golden-hour">Golden hour</option>
+        <option value="deep-night">Deep night</option>
+      </select>
+    </div>
+
+    <div class="score-visuals">
+      <figure class="canvas-figure">
+        <figcaption>Original</figcaption>
+        <canvas id="canvasNightOriginal"></canvas>
+      </figure>
+      <figure class="canvas-figure">
+        <figcaption>Simulated</figcaption>
+        <canvas id="canvasNightSim"></canvas>
+      </figure>
+    </div>
+
+    <div class="action-row">
+      <button type="button" id="btnExportNight" class="btn btn-secondary">Export simulated PNG</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <p id="watermarkNote">Made with Storefront Lens — free client-side storefront diagnostics.</p>
+  <button type="button" id="btnResetData" class="btn btn-ghost btn-small">Reset saved data</button>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
