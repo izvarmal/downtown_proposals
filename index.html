@@ -44,13 +44,13 @@ header.top {
 .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 1rem; }
 .logo { display: flex; align-items: center; flex: none; }
 .logo img { height: 36px; width: auto; display: block; }
-.top nav { display: flex; align-items: center; gap: 1.5rem; font-size: 0.88rem; font-weight: 600; }
-.top nav a { color: #fff; text-decoration: none; }
+.top nav { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.88rem; font-weight: 600; }
+.top nav a { color: #fff; text-decoration: none; display: inline-block; line-height: 1.2; padding: 0.55rem 0.6rem; border: 1px solid transparent; border-radius: 2px; white-space: nowrap; }
 .top nav a:hover { color: var(--window); }
-.top .site { border: 1px solid rgba(255,255,255,0.45); padding: 0.5rem 0.9rem; border-radius: 2px; white-space: nowrap; }
+.top .site { border-color: rgba(255,255,255,0.45); padding-left: 0.9rem; padding-right: 0.9rem; margin-left: 0.6rem; }
 .top .site:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
-.top .cta { background: var(--blue); color: #fff; padding: 0.55rem 1rem; border-radius: 2px; white-space: nowrap; }
-.top .cta:hover { background: var(--signal); color: #fff; }
+.top .cta { background: var(--blue); border-color: var(--blue); color: #fff; padding-left: 1rem; padding-right: 1rem; }
+.top .cta:hover { background: var(--signal); border-color: var(--signal); color: #fff; }
 .arrow { display: inline-block; margin-left: 0.35rem; }
 
 /* intro */
@@ -140,6 +140,9 @@ footer a { color: #fff; font-weight: 600; text-decoration: none; }
 footer .sitebtn { border: 1px solid rgba(255,255,255,0.45); padding: 0.8rem 1.2rem; border-radius: 2px; display: inline-block; }
 footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 
+@media (max-width: 1080px) {
+  .top nav a:not(.cta):not(.site) { display: none; }
+}
 @media (max-width: 860px) {
   .wrap { padding: 0 1rem; }
   .svc, .tier { padding: 1.25rem; }
@@ -167,7 +170,7 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
     <a class="logo" href="https://storefrontmastery.com" title="Go to storefrontmastery.com"><img src="storefront-mastery-logo-white.png" alt="Storefront Mastery home" width="119" height="36"></a>
     <nav aria-label="Page sections">
       <a href="#how">How pricing works</a>
-      <a href="#program">Program</a>
+      <a href="#program">Flagship Program</a>
       <a href="#services">Services</a>
       <a href="#terms">Terms</a>
       <a class="site" href="https://storefrontmastery.com">storefrontmastery.com<span class="arrow" aria-hidden="true">↗</span></a>
@@ -193,7 +196,7 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
     <p>This page lists what every service costs, so you can plan a budget, compare options, and bring a number to your board before we talk. Every price is fixed. Nothing is billed by the hour unless you ask for advisory time. For projects, writing, and books, visit <a href="https://storefrontmastery.com" style="color:#fff;font-weight:600">storefrontmastery.com</a>.</p>
     <div class="onpage">
       <a href="#how"><small>01</small><strong>How pricing works</strong></a>
-      <a href="#program"><small>02</small><strong>The transformation program</strong></a>
+      <a href="#program"><small>02</small><strong>The Flagship Program</strong></a>
       <a href="#services"><small>03</small><strong>Individual services</strong></a>
       <a href="#terms"><small>04</small><strong>Travel, credits, and terms</strong></a>
     </div>
@@ -230,7 +233,7 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
 
 <section id="program" class="mist">
   <div class="wrap">
-    <p class="label">02 · The Storefront Transformation Program</p>
+    <p class="label">02 · The Flagship Program: Storefront Transformation</p>
     <h2>Three tiers that build on each other.</h2>
     <p class="sub">Each tier includes everything in the one before it. Bundled prices run 16% to 19% below the same services bought one at a time.</p>
 
@@ -293,7 +296,7 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
   <div class="wrap">
     <p class="label">03 · Individual services</p>
     <h2>Buy one piece, or build your own sequence.</h2>
-    <p class="sub">Every service in the program is also sold on its own. Prices below apply within 75 minutes' drive of Montclair, New Jersey. Travel beyond that is listed under terms.</p>
+    <p class="sub">Every service in the Flagship Program is also sold on its own. Prices below apply within 75 minutes' drive of Montclair, New Jersey. Travel beyond that is listed under terms.</p>
 
     <p class="group">Corridor and district</p>
     <div class="services">
