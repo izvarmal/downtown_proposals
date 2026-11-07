@@ -92,6 +92,19 @@ tbody th { font-weight: 700; }
 tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 0.85rem; margin-top: 0.15rem; }
 .note { color: var(--muted); font-size: 0.9rem; margin-top: 1rem; }
 
+/* ladders */
+.ladders { display: grid; gap: 1rem; margin-bottom: 2rem; }
+.ladder { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: center; border: 1px solid var(--rule); padding: 1.1rem 1.25rem; }
+.track { font-weight: 700; font-size: 1.05rem; line-height: 1.25; }
+.track small { display: block; font-weight: 400; color: var(--muted); font-size: 0.88rem; }
+.ladder ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 0; align-items: stretch; }
+.ladder li { display: flex; flex-direction: column; justify-content: center; background: var(--mist); padding: 0.6rem 0.9rem; min-width: 150px; }
+.ladder li + li { margin-left: 1.9rem; position: relative; }
+.ladder li + li::before { content: "→"; position: absolute; left: -1.45rem; top: 50%; transform: translateY(-50%); color: var(--blue); font-weight: 700; }
+.ladder li span { font-size: 0.85rem; color: var(--muted); }
+.ladder li b { font-size: 1.1rem; color: var(--blue); }
+.explain { font-size: 1.04rem; }
+
 /* tier cards */
 .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2.5rem; }
 .tier { background: #fff; border: 1px solid var(--rule); padding: 1.75rem; display: flex; flex-direction: column; }
@@ -150,7 +163,11 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
   .top nav { gap: 0.5rem; font-size: 0.8rem; }
   .top .cta { display: none; }
   .logo img { height: 30px; }
-  .steps, .tiers, .services, .terms { grid-template-columns: 1fr; }
+  .steps, .tiers, .services, .terms, .ladder { grid-template-columns: 1fr; }
+  .ladder { gap: 0.75rem; }
+  .ladder ol { flex-direction: column; }
+  .ladder li + li { margin: 1.4rem 0 0; }
+  .ladder li + li::before { content: "↓"; left: 1rem; top: -1.3rem; transform: none; }
   section { padding: 3.5rem 0; }
   .intro { padding: 3.5rem 0 3rem; }
   .intro .doors { width: 260px; }
@@ -197,7 +214,7 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
     <div class="onpage">
       <a href="#how"><small>01</small><strong>How pricing works</strong></a>
       <a href="#program"><small>02</small><strong>The Flagship Program</strong></a>
-      <a href="#services"><small>03</small><strong>Individual services</strong></a>
+      <a href="#services"><small>03</small><strong>More services</strong></a>
       <a href="#terms"><small>04</small><strong>Travel, credits, and terms</strong></a>
     </div>
   </div>
@@ -206,121 +223,89 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
 <section id="how">
   <div class="wrap">
     <p class="label">01 · How pricing works</p>
-    <h2>One scope, one price, decided before we start.</h2>
-    <p class="sub">Two things set the price of a corridor engagement: what you buy and how big the corridor is. We count your corridor from a map before the proposal goes out, and that class is locked when you sign.</p>
+    <h2>Start small. Every first step counts toward the next.</h2>
+    <p class="sub">This page covers four kinds of work: the Flagship Program for districts, Storefront Accelerators for individual businesses, code reform for municipalities, and facilitation and advice. Every price is fixed and listed here.</p>
 
-    <div class="steps" style="margin-bottom:3rem">
-      <div class="step"><p class="n">Understand</p><h3>Diagnose the street</h3><p>Corridor Vital Signs reads the whole corridor. Storefront Performance Scorecards read individual businesses. Both give you a baseline you can measure against later.</p></div>
-      <div class="step"><p class="n">Design</p><h3>Find the leverage</h3><p>The Idea Factory turns the diagnosis into five strategies, each with a big idea, a toolkit, an action plan, and a quick win you can show your board.</p></div>
-      <div class="step"><p class="n">Activate</p><h3>Change what people see</h3><p>Storefront Accelerators take selected businesses to contractor-ready recommendations. Code work removes the rules that stand in the way.</p></div>
+    <div class="ladders">
+      <div class="ladder">
+        <p class="track">Flagship Program<small>For districts</small></p>
+        <ol>
+          <li><span>Tier 1 · Align</span><b>$1,500</b></li>
+          <li><span>Tier 2 · Diagnose</span><b>$7,900</b></li>
+          <li><span>Tier 3 · Transform</span><b>$14,950</b></li>
+        </ol>
+      </div>
+      <div class="ladder">
+        <p class="track">Code reform<small>For municipalities</small></p>
+        <ol>
+          <li><span>Code Friction Audit</span><b>$2,450</b></li>
+          <li><span>Retail Design Code Refresh</span><b>$16,950</b></li>
+        </ol>
+      </div>
+      <div class="ladder">
+        <p class="track">Storefront Accelerator<small>For businesses</small></p>
+        <ol>
+          <li><span>Per storefront, by batch size</span><b>from $2,950</b></li>
+        </ol>
+      </div>
     </div>
 
-    <h3 style="margin-bottom:0.9rem">Corridor size classes</h3>
-    <div class="table-scroll">
-      <table>
-        <thead><tr><th>Class</th><th class="num">Ground-floor frontages</th><th class="num">Block faces</th><th>Typical example</th></tr></thead>
-        <tbody>
-          <tr><th>Compact</th><td class="num">up to 40</td><td class="num">up to 6</td><td>A short main street or a single commercial node</td></tr>
-          <tr><th>Standard</th><td class="num">41 to 80</td><td class="num">up to 12</td><td>A traditional downtown of a few blocks</td></tr>
-          <tr><th>Extended</th><td class="num">81 to 140</td><td class="num">up to 20</td><td>A long corridor or a downtown with side streets</td></tr>
-          <tr><th>District</th><td class="num">141 to 220</td><td class="num">up to 32</td><td>A full special improvement district</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">A frontage is one ground-floor commercial unit facing the corridor, occupied or vacant. A block face is one side of one block. When the two counts land in different classes, the higher class applies. Areas larger than 220 frontages are split into two corridors, and the second is priced at 10% off.</p>
+    <p class="explain">The logic is the same on every track. The first step is small enough to approve quickly, and it shows you what the larger step would fix. If you continue within six months, its full fee comes off the next step, so you never pay twice for the same ground. Accelerators work on their own or as the follow-on to the Flagship Program, for the storefronts its scorecards flag.</p>
   </div>
 </section>
 
 <section id="program" class="mist">
   <div class="wrap">
     <p class="label">02 · The Flagship Program: Storefront Transformation</p>
-    <h2>Three tiers that build on each other.</h2>
-    <p class="sub">Each tier includes everything in the one before it. Bundled prices run 16% to 19% below the same services bought one at a time.</p>
+    <h2>Three tiers. One price for every district.</h2>
+    <p class="sub">Each tier includes everything in the one before it. Prices cover corridors of up to 80 ground-floor storefronts; larger districts are quoted on request.</p>
 
     <div class="tiers">
       <article class="tier">
         <p class="tname">Tier 1 · Align</p>
         <h3>Alignment Workshop</h3>
-        <p class="from">All corridor sizes</p>
         <p class="amt">$1,500</p>
         <ul>
-          <li>Two-hour workshop for owners, staff, and board</li>
+          <li>Two-hour working session for owners, staff, and board</li>
           <li>Shared vision, the missing customer, reasons to visit, neighbors as partners</li>
           <li>One-page summary of a joint pilot with roles, a date, and a measure of success</li>
+          <li>Virtual option, $1,250</li>
         </ul>
-        <p class="for">Credited in full toward Tier 2 or Tier 3 within 6 months.</p>
+        <p class="for">Full fee credited toward Tier 2 or Tier 3 within 6 months.</p>
       </article>
       <article class="tier feature">
         <p class="tname">Tier 2 · Diagnose</p>
         <h3>Workshop, corridor, and storefronts</h3>
-        <p class="from">From</p>
-        <p class="amt">$7,050</p>
+        <p class="amt">$7,900</p>
         <ul>
-          <li>Corridor Vital Signs diagnostic</li>
-          <li>10 Storefront Performance Scorecards with owner reports</li>
+          <li>Corridor Vital Signs: the whole corridor scored across five dimensions and 20 measures, each traced to its evidence</li>
+          <li>10 Storefront Performance Scorecards, each with a one-page owner report</li>
           <li>Alignment Workshop built on your own findings</li>
           <li>Findings presentation to staff or board</li>
         </ul>
-        <p class="for">Credited in full toward Tier 3 within 12 months.</p>
+        <p class="for">Full fee credited toward Tier 3 within 12 months.</p>
       </article>
       <article class="tier">
         <p class="tname">Tier 3 · Transform</p>
         <h3>Diagnosis plus strategy</h3>
-        <p class="from">From</p>
-        <p class="amt">$13,950</p>
+        <p class="amt">$14,950</p>
         <ul>
           <li>Everything in Tier 2</li>
-          <li>Idea Factory strategy report with five strategies</li>
+          <li>Idea Factory report: five strategies, each with the issue, the winning asset, the big idea, a toolkit, an action plan, and a quick win</li>
           <li>Strategy presentation to stakeholders</li>
         </ul>
-        <p class="for">Leads directly into Storefront Accelerators for the businesses the scorecards flag.</p>
+        <p class="for">Leads into Storefront Accelerators for the businesses the scorecards flag.</p>
       </article>
     </div>
-
-    <div class="table-scroll">
-      <table>
-        <thead><tr><th>Package</th><th class="num">Compact</th><th class="num">Standard</th><th class="num">Extended</th><th class="num">District</th></tr></thead>
-        <tbody>
-          <tr><th>Tier 1 · Align<small>Alignment Workshop</small></th><td class="num price">$1,500</td><td class="num price">$1,500</td><td class="num price">$1,500</td><td class="num price">$1,500</td></tr>
-          <tr><th>Tier 2 · Diagnose<small>Workshop, Corridor Vital Signs, 10 scorecards</small></th><td class="num price">$7,050</td><td class="num price">$7,900</td><td class="num price">$9,150</td><td class="num price">$10,850</td></tr>
-          <tr><th>Tier 3 · Transform<small>Tier 2 plus the Idea Factory</small></th><td class="num price">$13,950</td><td class="num price">$14,950</td><td class="num price">$16,050</td><td class="num price">$17,450</td></tr>
-          <tr><th>Strategy package<small>Corridor Vital Signs plus the Idea Factory, no workshop or scorecards</small></th><td class="num price">$10,050</td><td class="num price">$10,950</td><td class="num price">$12,250</td><td class="num price">$14,050</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">For New Jersey municipal payers: Tier 1 sits under the $2,625 quote threshold; Tier 2 Compact and Standard sit under the $7,950 quote threshold for towns with a Qualified Purchasing Agent; every Tier 3 price sits under the $17,500 pay-to-play threshold. Confirm thresholds with your purchasing agent.</p>
+    <p class="note">For New Jersey municipal payers: Tier 1 sits under the $2,625 quote threshold, Tier 2 under the $7,950 quote threshold for towns with a Qualified Purchasing Agent, and Tier 3 under the $17,500 pay-to-play threshold. Confirm thresholds with your purchasing agent.</p>
   </div>
 </section>
 
 <section id="services">
   <div class="wrap">
-    <p class="label">03 · Individual services</p>
-    <h2>Buy one piece, or build your own sequence.</h2>
-    <p class="sub">Every service in the Flagship Program is also sold on its own. Prices below apply within 75 minutes' drive of Montclair, New Jersey. Travel beyond that is listed under terms.</p>
-
-    <p class="group">Corridor and district</p>
-    <div class="services">
-      <article class="svc">
-        <header><h3>Alignment Workshop</h3><span class="p">$1,500</span></header>
-        <p>A two-hour working session that gets owners, staff, and board pointed at the same customer and the same first move. Built on a tested deck, customized with your district's photos, names, and one local data point.</p>
-        <dl><dt>Virtual</dt><dd>$1,250</dd><dt>Delivers</dt><dd>One-page joint pilot summary</dd><dt>Credit</dt><dd>Full fee toward Tier 2 or 3 within 6 months</dd></dl>
-      </article>
-      <article class="svc">
-        <header><h3>Corridor Vital Signs</h3><span class="p">$2,950 to $7,450</span></header>
-        <p>A corridor diagnostic across five dimensions and 20 measures: legibility, invitation, brand coherence, economic contribution, and implementation viability. Every finding is labeled as a count, a scored judgment, or a reported figure, so any score can be traced to its evidence.</p>
-        <dl><dt>Compact</dt><dd>$2,950</dd><dt>Standard</dt><dd>$3,950</dd><dt>Extended</dt><dd>$5,450</dd><dt>District</dt><dd>$7,450</dd><dt>Includes</dt><dd>Report and one findings presentation</dd></dl>
-      </article>
-      <article class="svc">
-        <header><h3>Storefront Performance Scorecards</h3><span class="p">from $300 each</span></header>
-        <p>A field audit of each storefront scored out of 25 across legibility, invitation, condition and care, brand coherence, and district contribution, with a one-page report each owner can act on.</p>
-        <dl><dt>8 to 15</dt><dd>$400 each (minimum order of 8)</dd><dt>16 to 30</dt><dd>$350 each</dd><dt>31 or more</dt><dd>$300 each</dd><dt>Owner debrief</dt><dd>$150 per storefront, 20-minute call</dd><dt>Credit</dt><dd>$400 toward that storefront's Accelerator within 12 months</dd></dl>
-      </article>
-      <article class="svc">
-        <header><h3>Idea Factory strategy report</h3><span class="p">$8,500</span></header>
-        <p>Five strategies built from your Corridor Vital Signs findings. Each names the issue, the winning asset, the big idea, the recommended toolkit, a basic action plan, and a quick win you can deliver early to build support.</p>
-        <dl><dt>Requires</dt><dd>Corridor Vital Signs, bought with it or before</dd><dt>Includes</dt><dd>One strategy presentation</dd></dl>
-      </article>
-    </div>
+    <p class="label">03 · More services</p>
+    <h2>For businesses, codes, and conversations.</h2>
+    <p class="sub">Prices apply within 75 minutes' drive of Montclair, New Jersey. Travel beyond that is listed under terms.</p>
 
     <p class="group">Businesses</p>
     <div class="services">
@@ -338,11 +323,11 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
             </tbody>
           </table>
         </div>
-        <dl><dt>Excludes</dt><dd>Architectural drawings, construction documents, engineered plans, permit sets, and fabrication shop drawings</dd></dl>
+        <dl><dt>Credit</dt><dd>$400 off for any storefront scored in Tier 2 within the previous 12 months</dd><dt>Excludes</dt><dd>Architectural drawings, construction documents, engineered plans, permit sets, and fabrication shop drawings</dd></dl>
       </article>
     </div>
 
-    <p class="group">Regulations</p>
+    <p class="group">Code reform</p>
     <div class="services">
       <article class="svc">
         <header><h3>Code Friction Audit</h3><span class="p">$2,450</span></header>
@@ -393,9 +378,9 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
       <div>
         <h3>Credits and upgrades</h3>
         <ul>
-          <li>Alignment Workshop: full fee credited toward Tier 2 or Tier 3 within 6 months.</li>
+          <li>Tier 1: full fee credited toward Tier 2 or Tier 3 within 6 months.</li>
           <li>Tier 2: full fee credited toward Tier 3 within 12 months.</li>
-          <li>Scorecard: $400 credited toward that storefront's Accelerator within 12 months.</li>
+          <li>Tier 2 scorecards: $400 per storefront credited toward that storefront's Accelerator within 12 months.</li>
           <li>Code Friction Audit: full fee credited toward a Code Refresh within 6 months.</li>
         </ul>
       </div>
@@ -404,8 +389,8 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
         <ul>
           <li>Two or more districts contracting together: 10% each.</li>
           <li>Full payment at signing: 5%.</li>
-          <li>Districts with an annual budget under $300,000: up to 15% on Tier 2, Tier 3, the strategy package, or an Accelerator batch, in exchange for case-study and photo rights.</li>
-          <li>Combined reductions are capped at 15% and do not apply to the workshop, the audit, or the Code Refresh.</li>
+          <li>Districts with an annual budget under $300,000: up to 15% on Tier 2, Tier 3, or an Accelerator batch, in exchange for case-study and photo rights.</li>
+          <li>Combined reductions are capped at 15% and do not apply to Tier 1, the audit, or the Code Refresh.</li>
         </ul>
       </div>
       <div>
