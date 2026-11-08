@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Grant-Ready Storefronts | Storefront Mastery</title>
+<meta name="description" content="For New Jersey downtowns holding storefront or façade grant money: a scored assessment of every storefront in your program, with ranked upgrades and ballpark costs, for about 4 cents on each grant dollar.">
+<meta property="og:title" content="Grant-Ready Storefronts | Storefront Mastery">
+<meta property="og:description" content="Multiply your grant's impact for 4 cents on the dollar.">
+<meta property="og:url" content="https://pricing.storefrontmastery.com/facadegrants.html">
+<link rel="icon" href="storefront-mastery-logo-white.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+<style>
+/* Layout: architectural grid bands, hairline-bordered cells, navy grounds for the thesis and the process, one red accent reserved for money left on the table */
+:root{
+  --navy:#081D31; --blue:#0F4B91; --bright:#0089FF; --sky:#8FCBFF; --red:#DF2153;
+  --bg:#ffffff; --alt:#f2f5f9; --ink:#081D31; --muted:#4b5b6c; --line:#d6dfe9;
+  --band:#081D31; --band-ink:#ffffff; --band-muted:rgba(255,255,255,.72); --band-line:rgba(255,255,255,.14);
+  --accent:#0F4B91; --accent-ink:#ffffff; --tag-bg:#e4eefa; --card:#ffffff;
+  --font:"Avenir Next","Avenir","Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0a1a2c; --alt:#0e2238; --ink:#eef4fb; --muted:#a9bccf; --line:#20384f;
+  --band:#04101d; --band-ink:#ffffff; --band-muted:rgba(255,255,255,.7); --band-line:rgba(255,255,255,.12);
+  --accent:#3aa2ff; --accent-ink:#04101d; --tag-bg:#12304f; --card:#0c2034; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0a1a2c; --alt:#0e2238; --ink:#eef4fb; --muted:#a9bccf; --line:#20384f;
+  --band:#04101d; --band-ink:#ffffff; --band-muted:rgba(255,255,255,.7); --band-line:rgba(255,255,255,.12);
+  --accent:#3aa2ff; --accent-ink:#04101d; --tag-bg:#12304f; --card:#0c2034; color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:88px}
+h1,h2,h3{margin:0;font-weight:700;line-height:1.12;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,5.2vw,4rem)}
+h2{font-size:clamp(1.7rem,3.2vw,2.6rem);max-width:22ch}
+h3{font-size:1.12rem;line-height:1.3}
+p{margin:0}
+.label{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.lede{font-size:1.08rem;color:var(--muted);max-width:62ch;margin-top:18px}
+em.hi{font-style:normal;color:var(--accent)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bright);outline-offset:3px}
+.btn{display:inline-block;padding:15px 26px;border-radius:2px;font-weight:700;font-size:.92rem;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--bright);color:#04101d}
+.btn-primary:hover{background:var(--sky)}
+.btn-ghost{border-color:var(--band-line);color:var(--band-ink)}
+.btn-ghost:hover{border-color:var(--sky)}
+.num{font-variant-numeric:tabular-nums}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--band);border-bottom:1px solid var(--band-line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.mark{display:flex;align-items:center;flex:none}
+.mark img{height:36px;width:auto;display:block}
+nav .btn{padding:10px 18px;font-size:.84rem}
+
+/* hero */
+.hero{background:var(--band);color:var(--band-ink);padding-block:72px 0}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;border:1px solid var(--band-line);border-bottom:none}
+.hero-copy{padding:56px 48px 56px 40px;border-right:1px solid var(--band-line);min-width:0}
+.hero .label{color:var(--sky)}
+.hero p.lede{color:var(--band-muted)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.ledger{display:grid;grid-template-rows:repeat(4,auto);min-width:0}
+.ledger div{padding:26px 32px;border-bottom:1px solid var(--band-line);display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.ledger div:last-child{border-bottom:none;background:rgba(0,137,255,.14)}
+.ledger span{font-size:.86rem;color:var(--band-muted)}
+.ledger b{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ledger .cap{display:block;padding:14px 32px 0;font-size:.78rem;color:var(--band-muted)}
+
+/* grids */
+.cells{display:grid;border:1px solid var(--line);margin-top:44px}
+.c4{grid-template-columns:repeat(4,1fr)}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c2{grid-template-columns:repeat(2,1fr)}
+.cell{padding:32px 28px;border-right:1px solid var(--line);min-width:0}
+.cell:last-child{border-right:none}
+.cell h3{margin-bottom:10px}
+.cell p{color:var(--muted);font-size:.96rem}
+.alt{background:var(--alt)}
+.tick{width:28px;height:4px;background:var(--red);margin-bottom:20px}
+
+/* deliverable */
+.deliv .cell ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.deliv li{padding-left:22px;position:relative;color:var(--muted);font-size:.97rem}
+.deliv li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--accent)}
+.tag{display:inline-block;font-size:.74rem;font-weight:700;background:var(--tag-bg);color:var(--accent);padding:4px 9px;margin-bottom:14px}
+
+/* sample */
+.sample{display:grid;grid-template-columns:.9fr 1.1fr;border:1px solid var(--line);background:var(--card);margin-top:44px}
+.sample>div{padding:32px;min-width:0}
+.sample>div:first-child{border-right:1px solid var(--line)}
+.dim{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.dim:last-of-type{border-bottom:none}
+.dim span{font-size:.94rem}
+.dots{display:flex;gap:4px}
+.dots i{width:16px;height:16px;border:1.5px solid var(--accent)}
+.dots i.on{background:var(--accent)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:16px;border-top:2px solid var(--ink)}
+.total b{font-size:2rem;font-weight:700}
+.band-pill{font-size:.78rem;font-weight:700;color:#fff;background:var(--red);padding:4px 10px}
+.prio{list-style:none;margin:0;padding:0;counter-reset:p}
+.prio li{counter-increment:p;display:grid;grid-template-columns:34px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.prio li::before{content:counter(p);font-weight:700;color:var(--accent);font-size:1.1rem}
+.prio .cost{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:.94rem}
+.skip{margin-top:16px;padding:14px 16px;border-left:3px solid var(--red);background:var(--alt);font-size:.93rem;color:var(--muted)}
+.fine{margin-top:16px;font-size:.8rem;color:var(--muted)}
+.sum{display:flex;justify-content:space-between;margin-top:14px;font-weight:700}
+
+/* process */
+.process{background:var(--band);color:var(--band-ink)}
+.process .label{color:var(--sky)}
+.process .cells{border-color:var(--band-line)}
+.process .cell{border-color:var(--band-line)}
+.process .cell p{color:var(--band-muted)}
+.step-n{width:44px;height:44px;background:var(--bright);color:#04101d;display:grid;place-items:center;font-weight:700;margin-bottom:22px}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin-top:44px}
+.price-grid>div{padding:36px 32px;min-width:0}
+.price-grid>div:first-child{border-right:1px solid var(--line)}
+.big{font-size:clamp(2.6rem,5vw,3.6rem);font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.big small{font-size:1rem;font-weight:600;color:var(--muted)}
+.terms{list-style:none;margin:24px 0 0;padding:0}
+.terms li{padding:12px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;font-size:.96rem}
+.terms li span:last-child{font-weight:700;white-space:nowrap}
+.calc label{display:block;font-size:.86rem;font-weight:700;margin:0 0 6px}
+.calc .row{margin-bottom:18px}
+.calc input[type=number]{width:100%;font:inherit;font-size:1.1rem;padding:12px 14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:0}
+.calc input[type=range]{width:100%;accent-color:var(--bright)}
+.out{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin-top:8px}
+.out div{padding:16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.out div:nth-child(2n){border-right:none}
+.out div:nth-last-child(-n+2){border-bottom:none}
+.out span{display:block;font-size:.78rem;color:var(--muted)}
+.out b{font-size:1.35rem;font-variant-numeric:tabular-nums}
+.note{font-size:.84rem;color:var(--muted);margin-top:12px;min-height:1.3em}
+.note.warn{color:var(--red)}
+
+/* proof */
+blockquote{margin:0;font-size:1rem;line-height:1.7}
+blockquote footer{margin-top:16px;font-size:.88rem}
+blockquote footer b{display:block}
+blockquote footer span{color:var(--accent);font-weight:600}
+.places{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.places span{border:1px solid var(--line);padding:6px 12px;font-size:.88rem}
+
+/* faq */
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:700}
+details[open] summary::after{content:"−"}
+details p{margin-top:12px;color:var(--muted);max-width:70ch}
+.faq{max-width:860px;margin-top:36px}
+
+/* cta */
+.cta{background:var(--blue);color:#fff}
+.cta h2{max-width:20ch}
+.cta p{color:rgba(255,255,255,.8);margin-top:16px;max-width:58ch}
+.mailrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px}
+.mailrow code{font-family:inherit;font-weight:700;font-size:1.1rem;background:rgba(255,255,255,.1);padding:13px 18px;user-select:all}
+.btn-white{background:#fff;color:#0F4B91}
+.btn-white:hover{background:var(--sky)}
+.foot{background:var(--band);color:var(--band-muted);padding-block:36px;font-size:.86rem}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+
+@media (max-width:900px){
+  section{padding-block:60px}
+  .hero{padding-block:40px 0}
+  .hero-grid,.sample,.price-grid{grid-template-columns:1fr}
+  .hero-copy{padding:36px 22px;border-right:none;border-bottom:1px solid var(--band-line)}
+  .ledger div{padding:20px 22px}.ledger .cap{padding:12px 22px 0}
+  .c4,.c3,.c2{grid-template-columns:1fr}
+  .cell{border-right:none;border-bottom:1px solid var(--line)}
+  .cell:last-child{border-bottom:none}
+  .process .cell{border-bottom-color:var(--band-line)}
+  .sample>div:first-child,.price-grid>div:first-child{border-right:none;border-bottom:1px solid var(--line)}
+  .sample>div,.price-grid>div{padding:24px 20px}
+  .prio li{grid-template-columns:28px 1fr}
+  .prio .cost{grid-column:2}
+  nav .hide-sm{display:none}
+}
+@media (prefers-reduced-motion:no-preference){.btn{transition:background .18s,border-color .18s}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="mark" href="#top"><img src="storefront-mastery-logo-white.png" alt="Storefront Mastery" width="119" height="36"></a>
+    <div style="display:flex;gap:10px">
+      <a class="btn btn-ghost hide-sm" href="#price">Pricing</a>
+      <a class="btn btn-primary" href="#book">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="label">Special offer for districts that already hold a storefront grant</p>
+        <h1>Multiply your grant’s impact for <em class="hi" style="color:var(--sky)">4 cents on the dollar.</em></h1>
+        <p class="lede">Without a plan, grant money goes to whatever each owner asks for first, and most of it buys nothing your street will notice. For a few pennies on each grant dollar, we assess every storefront in your program before the checks go out. Each owner gets a scored report with ranked upgrades and ballpark costs, so the money lands where it changes the street.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#book">Book a 30-minute call</a>
+          <a class="btn btn-ghost" href="#price">Run your numbers</a>
+        </div>
+      </div>
+      <div class="ledger" aria-label="Example program">
+        <span class="cap">A typical program</span>
+        <div><span>Grant pool</span><b class="num">$100,000</b></div>
+        <div><span>Businesses receiving funds</span><b class="num">10</b></div>
+        <div><span>Assessing all ten storefronts</span><b class="num">$3,950</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="label">What happens without a plan</p>
+    <h2>Ten businesses, ten checks, and no shared idea of what the money should fix.</h2>
+    <div class="cells c4">
+      <div class="cell"><div class="tick"></div><h3>Everyone asks for a sign</h3><p>Owners request the upgrade they can picture. The sign gets funded while the dark window, the dead entrance and the peeling trim stay as they are.</p></div>
+      <div class="cell"><div class="tick"></div><h3>Three quotes for three different jobs</h3><p>Your program asks for three estimates. Without a written scope, each contractor bids on different work and nobody can compare them.</p></div>
+      <div class="cell"><div class="tick"></div><h3>The fund runs dry mid-list</h3><p>First come, first served rewards the fastest applicant. The strongest projects show up late and find the pool already spent.</p></div>
+      <div class="cell"><div class="tick"></div><h3>The board asks what it bought</h3><p>At year end you report to your board, your council or your funder. You need to show what changed on the street and why those projects won.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="deliv">
+  <div class="wrap">
+    <p class="label">The deliverable</p>
+    <h2>One report for <em class="hi">every storefront</em> in the program.</h2>
+    <p class="lede">We score each storefront on the five dimensions we use across every district we work in: legibility, invitation, brand coherence, district contribution and implementation viability. Then we tell the owner what to do first and what it should cost.</p>
+    <div class="cells c2">
+      <div class="cell">
+        <span class="tag">In every report</span>
+        <h3>Storefront assessment</h3>
+        <ul>
+          <li>Five-dimension score on a 5 to 25 scale, with a performance band from critical to high performer</li>
+          <li>Upgrades ranked by impact, so the first dollar goes to the first fix</li>
+          <li>A planning-level cost range for every upgrade</li>
+          <li>What to leave off the grant, and why</li>
+          <li>A color palette matched to paint codes</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <span class="tag">What you do with it</span>
+        <h3>Award with confidence</h3>
+        <ul>
+          <li>Attach each report to its grant agreement as the approved scope</li>
+          <li>Check the three contractor quotes against the cost ranges</li>
+          <li>Show your board and your funder why each project was funded</li>
+          <li>Keep the reports as the before picture for year-end reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="label">What a report looks like</p>
+    <h2>One storefront, read in two minutes.</h2>
+    <div class="sample">
+      <div>
+        <span class="tag">Sample</span>
+        <h3>A corner bakery on a two-block main street</h3>
+        <div style="margin-top:14px">
+          <div class="dim"><span>Legibility</span><span class="dots" aria-label="2 of 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+          <div class="dim"><span>Invitation</span><span class="dots" aria-label="2 of 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+          <div class="dim"><span>Brand coherence</span><span class="dots" aria-label="3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="dim"><span>District contribution</span><span class="dots" aria-label="3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="dim"><span>Implementation viability</span><span class="dots" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+        </div>
+        <div class="total"><b class="num">14 / 25</b><span class="band-pill">Underperforming</span></div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:6px">Ranked upgrades</h3>
+        <ol class="prio">
+          <li><span>Replace the faded flat sign with a projecting blade sign</span><span class="cost">$1,800 to $4,500</span></li>
+          <li><span>Clear and restage the display window, with lights on a timer</span><span class="cost">$400 to $1,500</span></li>
+          <li><span>Repaint the trim and door in the new palette</span><span class="cost">$1,500 to $4,000</span></li>
+          <li><span>Two planters and a bench at the entrance</span><span class="cost">$600 to $1,800</span></li>
+        </ol>
+        <div class="sum num"><span>Estimated total</span><span>$4,300 to $11,800</span></div>
+        <div class="skip"><b style="color:var(--ink)">Leave off the grant.</b> A full awning replacement. The frame is sound and a recover can wait for next season.</div>
+        <p class="fine">Illustrative example. Real ranges depend on your region and are confirmed by contractor quotes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <p class="label">How it runs</p>
+    <h2>From award letter to signed grant agreements in about a month.</h2>
+    <div class="cells c4">
+      <div class="cell"><div class="step-n">1</div><h3>Scope call</h3><p>We confirm the list of businesses, your grant rules and what your funder allows the money to cover.</p></div>
+      <div class="cell"><div class="step-n">2</div><h3>Walk and meet</h3><p>We walk every storefront in the program with its owner there to answer questions.</p></div>
+      <div class="cell"><div class="step-n">3</div><h3>Reports delivered</h3><p>Every owner's report arrives within five business days of the walk, with a copy for you.</p></div>
+      <div class="cell"><div class="step-n">4</div><h3>Attach and award</h3><p>You attach each report to its grant agreement, so the approved scope matches the assessment from day one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <p class="label">Special offer</p>
+    <h2>A grant-holder rate, priced per storefront.</h2>
+    <p class="lede">Open to districts that have been awarded storefront or façade grant money and have not yet disbursed it. Book before the first check goes out.</p>
+    <div class="price-grid">
+      <div>
+        <div class="big">$3,950<small> for up to ten storefronts</small></div>
+        <ul class="terms">
+          <li><span>Each storefront beyond ten</span><span class="num">$350</span></li>
+          <li><span>Travel anywhere in New Jersey and nearby states</span><span>Included</span></li>
+          <li><span>Add an alignment workshop for owners</span><span class="num">$1,500</span></li>
+          <li><span>Full fee credited toward a Storefront Transformation program within 6 months</span><span>100%</span></li>
+          <li><span>Or, instead, credit toward a Storefront Accelerator per assessed storefront within 12 months</span><span class="num">$400</span></li>
+        </ul>
+      </div>
+      <div class="calc">
+        <h3 style="margin-bottom:18px">Run your numbers</h3>
+        <div class="row"><label for="grant">Average grant per business</label><input id="grant" type="number" min="0" step="500" value="10000" inputmode="numeric"></div>
+        <div class="row"><label for="n">Storefronts in the program: <span id="nOut" class="num">10</span></label><input id="n" type="range" min="1" max="40" value="10"></div>
+        <div class="out">
+          <div><span>Assessment fee</span><b id="fee" class="num">$3,950</b></div>
+          <div><span>Share of the grant pool</span><b id="pct" class="num">4.0%</b></div>
+          <div><span>Total grant pool</span><b id="poolOut" class="num">$100,000</b></div>
+          <div><span>Fee per grant dollar</span><b id="cents" class="num">4.0¢</b></div>
+        </div>
+        <p class="note" id="note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="label">Who this is for</p>
+    <h2>The person who signs the grant agreements.</h2>
+    <div class="cells c3">
+      <div class="cell"><h3>BID, SID, DDA and Main Street directors</h3><p>You won a façade or storefront grant and now have to decide who gets what. You want a defensible process before the first check goes out.</p></div>
+      <div class="cell"><h3>Municipal economic development staff</h3><p>You run a façade program out of the city budget, a TIF or a county pass-through, and you report results to council.</p></div>
+      <div class="cell"><h3>UEZ and county program managers</h3><p>You run an Urban Enterprise Zone or county façade program and need consistent scopes across many applicants.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Who is behind it</p>
+    <h2>Jaime Izurieta, architect and urbanist.</h2>
+    <p class="lede">Founder of Storefront Mastery and author of <i>Main Street Mavericks</i> and <i>The Ten No-B.S. Rules for Successful Storefront Design</i>. More than twenty years in architecture, urban design and downtown economic development.</p>
+    <div class="cells c2">
+      <div class="cell"><blockquote>“Jaime Izurieta and Storefront Mastery have elevated our local businesses, showcasing their understanding of redevelopment and a commitment to excellence.”<footer><b>James Cahill</b><span>Mayor, City of New Brunswick, NJ</span></footer></blockquote></div>
+      <div class="cell"><blockquote>“Jaime is creative and realistic with his suggestions. Many of the business owners had never thought about their business in that way, and the experience was beneficial.”<footer><b>Elizabeth Terenik</b><span>Former Executive Director, Chelsea EDC, Atlantic City, NJ</span></footer></blockquote></div>
+    </div>
+    <div class="places" aria-label="Districts served">
+      <span>Kansas City, MO</span><span>Grand Rapids, MI</span><span>Santa Ana, CA</span><span>Jamestown, NY</span><span>Merced, CA</span><span>New Brunswick, NJ</span><span>Atlantic City, NJ</span>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="label">Questions</p>
+    <h2>What directors ask before they book.</h2>
+    <div class="faq">
+      <details><summary>Can we pay for this out of the grant itself?</summary><p>Often, yes. Many programs allow administration or technical assistance costs, and some state funds budget for a paid program administrator. Check your grant agreement. We write the scope in your funder's language so it is easy to approve.</p></details>
+      <details><summary>Are these construction drawings?</summary><p>No. Each report is an expert assessment with planning-level costs. Permits, drawings and installation go through your contractors and licensed professionals.</p></details>
+      <details><summary>What if an owner disagrees with the ranking?</summary><p>Owners choose which ranked upgrades to pursue. The ranking and the cost ranges stay as written, and your committee decides what the grant covers.</p></details>
+      <details><summary>Where do the cost ranges come from?</summary><p>From storefront projects we have guided and regional pricing. They frame the three quotes your program already asks for, so you can spot the one that is off.</p></details>
+      <details><summary>Do you rescore the storefronts after the work?</summary><p>No. The assessment sets the plan before the money goes out. The reports double as the baseline you report against.</p></details>
+      <details><summary>¿Está disponible en español?</summary><p>Sí. Todos los servicios están disponibles en español, incluidos los reportes para los dueños de negocio.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="book">
+  <div class="wrap">
+    <h2>Book before the first check goes out.</h2>
+    <p>A 30-minute call is enough to tell you whether your program is a fit. Send the name of your district, the size of your grant pool and how many businesses it will fund.</p>
+    <div class="mailrow">
+      <code id="addr">hello@storefrontmastery.com</code>
+      <button class="btn btn-white" id="copy" type="button">Copy address</button>
+      <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="mailto:hello@storefrontmastery.com?subject=Grant-ready%20storefronts">Open email</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap"><img src="storefront-mastery-logo-white.png" alt="Storefront Mastery" width="146" height="44" style="height:44px;width:auto"><span>Montclair, NJ · storefrontmastery.com · hello@storefrontmastery.com</span></div>
+</footer>
+
+<script>
+(function(){
+  function feeFor(k){
+    return 3950+Math.max(0,k-10)*350;
+  }
+  var grant=document.getElementById('grant'), n=document.getElementById('n');
+  var $=function(id){return document.getElementById(id)};
+  var money=function(v){return '$'+Math.round(v).toLocaleString('en-US')};
+  function run(){
+    var g=Math.max(0,parseFloat(grant.value)||0), k=parseInt(n.value,10), p=g*k;
+    $('nOut').textContent=k;
+    var fee=feeFor(k);
+    $('fee').textContent=money(fee);
+    $('poolOut').textContent=money(p);
+    if(p>0){var r=fee/p*100;$('pct').textContent=(r<10?r.toFixed(1):Math.round(r))+'%';$('cents').textContent=(r<10?r.toFixed(1):Math.round(r))+'¢';}
+    else{$('pct').textContent='n/a';$('cents').textContent='n/a';}
+    var note=$('note');note.className='note';
+    if(k<10){note.textContent='The flat fee covers up to ten storefronts.';}
+    else if(p>0 && fee/p>0.15){note.textContent='Above 15% of the pool. For grants this small, a group workshop may serve you better. Ask us on the call.';note.className='note warn';}
+    else{note.textContent='';}
+  }
+  grant.addEventListener('input',run);n.addEventListener('input',run);run();
+  $('copy').addEventListener('click',function(){
+    var b=this, t=$('addr').textContent;
+    var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy address'},1600)};
+    try{navigator.clipboard.writeText(t).then(done,function(){sel()});}catch(e){sel()}
+    function sel(){var r=document.createRange();r.selectNodeContents($('addr'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
+  });
+})();
+</script>
+</body>
+</html>
