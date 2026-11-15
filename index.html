@@ -3,13 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing schedule | Storefront Mastery</title>
-<meta name="description" content="Fixed prices for every Storefront Mastery service: corridor diagnostics, storefront scorecards, strategy, Storefront Accelerators, and retail design code work.">
+<title>Programs and pricing | Storefront Mastery</title>
+<meta name="description" content="Three phases for downtown organizations: ALIGN ($1,500), ASSESS ($7,900), and ACTIVATE ($14,950). Workshops, storefront assessments, and district strategy from Storefront Mastery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --blue: #0F4B91;
   --navy: #081D31;
+  --navy-2: #0E2C4A;
   --window: #8FCBFF;
   --signal: #0089FF;
   --red: #DF2153;
@@ -18,7 +22,7 @@
   --ink: #081D31;
   --muted: #4A5B6E;
   --rule: #D6E0EC;
-  --font: "Avenir Next", "Avenir", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font: "Avenir Next", "Avenir", "Nunito Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 html { scroll-behavior: smooth; }
 body {
@@ -36,11 +40,7 @@ p { max-width: 68ch; text-wrap: pretty; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
 
 /* nav */
-header.top {
-  position: sticky; top: 0; z-index: 10;
-  background: var(--navy);
-  border-bottom: 1px solid rgba(143,203,255,0.18);
-}
+header.top { position: sticky; top: 0; z-index: 10; background: var(--navy); border-bottom: 1px solid rgba(143,203,255,0.18); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 1rem; }
 .logo { display: flex; align-items: center; flex: none; }
 .logo img { height: 36px; width: auto; display: block; }
@@ -53,32 +53,111 @@ header.top {
 .top .cta:hover { background: var(--signal); border-color: var(--signal); color: #fff; }
 .arrow { display: inline-block; margin-left: 0.35rem; }
 
-/* intro */
-.intro { background: var(--navy); color: #fff; padding: 5.5rem 0 4.5rem; position: relative; overflow: hidden; }
-.intro .kicker { color: var(--window); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.25rem; }
-.intro h1 { font-size: clamp(2.4rem, 5.4vw, 4.2rem); max-width: 14ch; margin-bottom: 1.5rem; }
-.intro .lede { font-size: 1.2rem; color: #D9E6F5; margin-bottom: 1.1rem; }
-.intro p + p { color: #B9CBE0; margin-bottom: 0.9rem; }
-.intro .doors { position: absolute; right: -40px; bottom: -30px; width: 420px; opacity: 0.16; pointer-events: none; }
-.onpage { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: rgba(143,203,255,0.25); border: 1px solid rgba(143,203,255,0.25); max-width: 900px; }
-.onpage a { background: var(--navy); color: #fff; text-decoration: none; padding: 1rem 1.1rem; display: block; }
-.onpage a:hover { background: #0E2C4A; }
-.onpage small { display: block; color: var(--window); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem; }
-.onpage strong { font-weight: 600; font-size: 0.98rem; }
+/* hero */
+.hero { background: var(--navy); color: #fff; padding: 6rem 0 5rem; position: relative; overflow: hidden; }
+.hero .kicker { color: var(--window); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.25rem; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); max-width: 17ch; margin-bottom: 1.5rem; }
+.hero .lede { font-size: 1.25rem; color: #D9E6F5; margin-bottom: 1.5rem; max-width: 56ch; }
+.hero .services-line { font-size: 0.95rem; font-weight: 700; color: var(--window); letter-spacing: 0.04em; margin-bottom: 2.25rem; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+.btn { display: inline-block; font-weight: 700; padding: 0.95rem 1.6rem; text-decoration: none; border-radius: 2px; border: 1px solid transparent; }
+.btn-primary { background: #fff; color: var(--navy); }
+.btn-primary:hover { background: var(--window); }
+.hero .quiet { color: #fff; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; }
+.hero .quiet:hover { border-color: #fff; }
+.hero .doors { position: absolute; right: -40px; bottom: -30px; width: 420px; opacity: 0.16; pointer-events: none; }
+.hero .prices { margin-top: 3.25rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 760px; border: 1px solid rgba(143,203,255,0.25); }
+.hero .prices a { color: #fff; text-decoration: none; padding: 1rem 1.2rem; display: block; }
+.hero .prices a + a { border-left: 1px solid rgba(143,203,255,0.25); }
+.hero .prices a:hover { background: var(--navy-2); }
+.hero .prices small { display: block; color: var(--window); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.hero .prices strong { font-size: 1.35rem; font-weight: 700; }
 
 /* sections */
-section { padding: 5rem 0; border-bottom: 1px solid var(--rule); }
+section { padding: 5.5rem 0; border-bottom: 1px solid var(--rule); scroll-margin-top: 64px; }
 section.mist { background: var(--mist); }
 .label { color: var(--blue); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.9rem; }
 h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 1rem; max-width: 22ch; }
-.sub { color: var(--muted); font-size: 1.06rem; margin-bottom: 2.5rem; }
+.sub { color: var(--muted); font-size: 1.06rem; margin-bottom: 2.75rem; }
 h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+.note { color: var(--muted); font-size: 0.9rem; margin-top: 1rem; }
 
-/* how it works */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.step { border-top: 3px solid var(--blue); padding-top: 1.1rem; }
-.step .n { font-weight: 700; color: var(--blue); font-size: 0.9rem; margin-bottom: 0.3rem; }
-.step p { color: var(--muted); font-size: 0.97rem; }
+/* program cards */
+.programs { display: grid; grid-template-columns: 1fr 1.12fr 1fr; gap: 1.25rem; align-items: stretch; }
+.prog { background: #fff; border: 1px solid var(--rule); padding: 2rem 1.75rem; display: flex; flex-direction: column; }
+.prog .num { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.3rem; }
+.prog .name { font-size: 1.9rem; font-weight: 800; letter-spacing: 0.06em; line-height: 1; margin-bottom: 0.9rem; }
+.prog .amt { font-size: 2.3rem; font-weight: 700; line-height: 1; margin-bottom: 1.1rem; }
+.prog .outcome { font-size: 1.15rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.6rem; }
+.prog .desc { color: var(--muted); font-size: 0.97rem; margin-bottom: 1.1rem; }
+.prog .best { font-size: 0.92rem; background: var(--mist); padding: 0.75rem 0.9rem; margin-bottom: 1.25rem; }
+.prog .best b { display: block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.15rem; }
+.prog h4 { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+.prog ul { list-style: none; margin-bottom: 1.25rem; }
+.prog li { padding: 0.5rem 0 0.5rem 1.4rem; border-top: 1px solid var(--rule); position: relative; font-size: 0.95rem; }
+.prog li::before { content: ""; position: absolute; left: 0; top: 1rem; width: 8px; height: 8px; background: var(--blue); }
+.prog .credit { color: var(--muted); font-size: 0.88rem; margin-bottom: 1.25rem; }
+.prog .go { margin-top: auto; display: block; text-align: center; font-weight: 700; text-decoration: none; padding: 0.9rem 1rem; border: 1.5px solid var(--blue); color: var(--blue); border-radius: 2px; }
+.prog .go:hover { background: var(--blue); color: #fff; }
+.prog.feature { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: 0 18px 40px rgba(8,29,49,0.18); margin: -1rem 0; padding-top: 2.6rem; padding-bottom: 2.6rem; position: relative; }
+.prog.feature .flag { position: absolute; top: 0; left: 1.75rem; transform: translateY(-50%); background: var(--window); color: var(--navy); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 0.7rem; }
+.prog.feature .num { color: var(--window); }
+.prog.feature .desc, .prog.feature .credit, .prog.feature h4 { color: #B9CBE0; }
+.prog.feature .best { background: rgba(143,203,255,0.12); }
+.prog.feature .best b { color: var(--window); }
+.prog.feature li { border-color: rgba(143,203,255,0.25); }
+.prog.feature li::before { background: var(--window); }
+.prog.feature .go { background: #fff; color: var(--navy); border-color: #fff; }
+.prog.feature .go:hover { background: var(--window); border-color: var(--window); }
+.prog-notes { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.prog-notes p { color: var(--muted); font-size: 0.9rem; border-top: 2px solid var(--rule); padding-top: 0.75rem; }
+.prog-notes b { color: var(--ink); }
+
+/* inside */
+.inside { margin-top: 3.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.inside-block { background: #fff; border: 1px solid var(--rule); padding: 2rem 1.9rem; }
+.inside-block h3 { font-size: 1.45rem; margin-bottom: 0.6rem; }
+.inside-block > p { color: var(--muted); margin-bottom: 1.25rem; }
+.inside-block > p.label { color: var(--blue); margin-bottom: 0.9rem; }
+.inside-block.dark { background: var(--navy); color: #fff; border-color: var(--navy); }
+.inside-block.dark > p.label { color: var(--window); }
+.inside-block.dark > p { color: #B9CBE0; }
+.anatomy { list-style: none; counter-reset: a; }
+.anatomy li { counter-increment: a; position: relative; padding: 0.65rem 0 0.65rem 2.4rem; border-top: 1px solid var(--rule); font-size: 0.97rem; }
+.anatomy li::before { content: counter(a); position: absolute; left: 0; top: 0.65rem; width: 1.6rem; height: 1.6rem; display: grid; place-items: center; background: var(--blue); color: #fff; font-weight: 700; font-size: 0.85rem; }
+.inside-block.dark .anatomy li { border-color: rgba(143,203,255,0.25); color: #D9E6F5; }
+.inside-block.dark .anatomy li b { color: #fff; }
+.inside-block.dark .anatomy li::before { background: var(--window); color: var(--navy); }
+
+/* why */
+.why { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+.why div { border-top: 3px solid var(--blue); padding-top: 1rem; }
+.why h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+.why p { color: var(--muted); font-size: 0.93rem; }
+.founder { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; border-top: 1px solid var(--rule); padding-top: 2rem; }
+.founder h3 { font-size: 1.1rem; }
+.founder p { color: var(--muted); }
+
+/* proof */
+.proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2rem 0 2.5rem; }
+.case { background: #fff; border: 1px solid var(--rule); padding: 1.5rem; }
+.case .place { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem; }
+.case p { font-size: 1rem; }
+blockquote.quote { background: var(--navy); color: #fff; padding: 2.25rem 2.5rem; border-left: 4px solid var(--red); }
+blockquote.quote p { font-size: 1.3rem; line-height: 1.45; margin-bottom: 1rem; max-width: 52ch; }
+blockquote.quote footer { background: none; padding: 0; color: #B9CBE0; font-size: 0.92rem; }
+blockquote.quote footer b { color: #fff; display: block; }
+
+/* faq */
+.faq { max-width: 820px; }
+.faq details { border-top: 1px solid var(--rule); }
+.faq details:last-child { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; list-style: none; padding: 1.15rem 2.5rem 1.15rem 0; font-weight: 700; font-size: 1.08rem; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 0.25rem; top: 50%; transform: translateY(-50%); font-size: 1.5rem; font-weight: 400; color: var(--blue); }
+.faq details[open] summary::after { content: "–"; }
+.faq .a { padding: 0 0 1.25rem; color: var(--muted); }
+.faq .a p + p { margin-top: 0.6rem; }
 
 /* tables */
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--rule); background: #fff; }
@@ -89,34 +168,6 @@ tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
 td.num, th.num { text-align: right; white-space: nowrap; }
 td.price { font-weight: 700; color: var(--blue); }
 tbody th { font-weight: 700; }
-tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 0.85rem; margin-top: 0.15rem; }
-.note { color: var(--muted); font-size: 0.9rem; margin-top: 1rem; }
-
-/* ladders */
-.ladders { display: grid; gap: 1rem; margin-bottom: 2rem; }
-.ladder { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: center; border: 1px solid var(--rule); padding: 1.1rem 1.25rem; }
-.track { font-weight: 700; font-size: 1.05rem; line-height: 1.25; }
-.track small { display: block; font-weight: 400; color: var(--muted); font-size: 0.88rem; }
-.ladder ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 0; align-items: stretch; }
-.ladder li { display: flex; flex-direction: column; justify-content: center; background: var(--mist); padding: 0.6rem 0.9rem; min-width: 150px; }
-.ladder li + li { margin-left: 1.9rem; position: relative; }
-.ladder li + li::before { content: "→"; position: absolute; left: -1.45rem; top: 50%; transform: translateY(-50%); color: var(--blue); font-weight: 700; }
-.ladder li span { font-size: 0.85rem; color: var(--muted); }
-.ladder li b { font-size: 1.1rem; color: var(--blue); }
-.explain { font-size: 1.04rem; }
-
-/* tier cards */
-.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2.5rem; }
-.tier { background: #fff; border: 1px solid var(--rule); padding: 1.75rem; display: flex; flex-direction: column; }
-.tier.feature { border: 2px solid var(--blue); }
-.tier .tname { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem; }
-.tier h3 { margin-bottom: 0.7rem; }
-.tier .from { font-size: 0.85rem; color: var(--muted); }
-.tier .amt { font-size: 2.1rem; font-weight: 700; line-height: 1.1; margin-bottom: 1rem; }
-.tier ul { list-style: none; margin-bottom: 1rem; }
-.tier li { padding: 0.45rem 0 0.45rem 1.4rem; border-top: 1px solid var(--rule); position: relative; font-size: 0.95rem; }
-.tier li::before { content: ""; position: absolute; left: 0; top: 0.95rem; width: 8px; height: 8px; background: var(--blue); }
-.tier .for { margin-top: auto; color: var(--muted); font-size: 0.9rem; }
 
 /* service cards */
 .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
@@ -126,7 +177,6 @@ tbody th small { display: block; font-weight: 400; color: var(--muted); font-siz
 .svc p { color: var(--muted); font-size: 0.97rem; margin-bottom: 0.75rem; }
 .svc dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1rem; font-size: 0.92rem; border-top: 1px solid var(--rule); padding-top: 0.75rem; }
 .svc dt { font-weight: 700; }
-.svc dd { color: var(--ink); }
 .svc.wide { grid-column: 1 / -1; }
 .group { max-width: none; margin: 3rem 0 1.25rem; font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.75rem; }
 .group::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
@@ -143,18 +193,19 @@ tbody th small { display: block; font-weight: 400; color: var(--muted); font-siz
 .closing { background: var(--blue); color: #fff; padding: 5rem 0; border: 0; }
 .closing h2 { color: #fff; }
 .closing p { color: #D9E6F5; font-size: 1.08rem; margin-bottom: 2rem; }
-.closing .btn { display: inline-block; background: #fff; color: var(--blue); font-weight: 700; padding: 0.95rem 1.6rem; text-decoration: none; border-radius: 2px; }
+.closing .btn { background: #fff; color: var(--blue); }
 .closing .btn:hover { background: var(--navy); color: #fff; }
 .closing .btn .dot { display: inline-block; width: 8px; height: 8px; background: var(--red); margin-right: 0.6rem; vertical-align: middle; }
-footer { background: var(--navy); color: #B9CBE0; padding: 3rem 0; font-size: 0.9rem; }
-footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-footer img { height: 44px; width: auto; display: block; margin-bottom: 0.75rem; }
-footer a { color: #fff; font-weight: 600; text-decoration: none; }
-footer .sitebtn { border: 1px solid rgba(255,255,255,0.45); padding: 0.8rem 1.2rem; border-radius: 2px; display: inline-block; }
-footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+body > footer { background: var(--navy); color: #B9CBE0; padding: 3rem 0; font-size: 0.9rem; }
+body > footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+body > footer img { height: 44px; width: auto; display: block; margin-bottom: 0.75rem; }
+body > footer a { color: #fff; font-weight: 600; text-decoration: none; }
+body > footer .sitebtn { border: 1px solid rgba(255,255,255,0.45); padding: 0.8rem 1.2rem; border-radius: 2px; display: inline-block; }
+body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 
 @media (max-width: 1080px) {
   .top nav a:not(.cta):not(.site) { display: none; }
+  .why { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
   .table-scroll { overflow: visible; border: 0; background: transparent; }
@@ -164,29 +215,29 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
   tbody th { padding: 0.5rem 0.9rem 0.3rem; border: 0; font-size: 1rem; }
   tbody td, td.num { display: flex; justify-content: space-between; gap: 1rem; text-align: right; padding: 0.35rem 0.9rem; border: 0; }
   tbody td::before { content: attr(data-label); text-align: left; color: var(--muted); font-weight: 400; font-size: 0.85rem; flex: none; max-width: 45%; }
-  tbody th::before { display: none; }
+  .hero .prices { grid-template-columns: 1fr; }
+  .hero .prices a + a { border-left: 0; border-top: 1px solid rgba(143,203,255,0.25); }
+  .why { grid-template-columns: 1fr; }
 }
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .wrap { padding: 0 1rem; }
-  .svc, .tier { padding: 1.25rem; }
-  .top nav a:not(.cta):not(.site) { display: none; }
+  .programs, .services, .terms, .proof, .prog-notes, .founder, .inside { grid-template-columns: 1fr; }
+  .inside-block { padding: 1.5rem 1.25rem; }
+  .prog.feature { margin: 1rem 0; }
+  .prog, .svc { padding: 1.5rem 1.25rem; }
+  .prog.feature { padding-top: 2.25rem; padding-bottom: 2rem; }
   .top nav { gap: 0.5rem; font-size: 0.8rem; }
   .top .cta { display: none; }
   .logo img { height: 30px; }
-  .steps, .tiers, .services, .terms, .ladder { grid-template-columns: 1fr; }
-  .ladder { gap: 0.75rem; }
-  .ladder ol { flex-direction: column; }
-  .ladder li + li { margin: 1.4rem 0 0; }
-  .ladder li + li::before { content: "↓"; left: 1rem; top: -1.3rem; transform: none; }
-  section { padding: 3.5rem 0; }
-  .intro { padding: 3.5rem 0 3rem; }
-  .intro .doors { width: 260px; }
+  section { padding: 3.75rem 0; }
+  .hero { padding: 3.75rem 0 3.25rem; }
+  .hero .doors { width: 260px; }
+  blockquote.quote { padding: 1.75rem 1.5rem; }
+  blockquote.quote p { font-size: 1.12rem; }
 }
 @media print {
-  header.top, .intro .doors { display: none; }
-  .intro, .closing { background: #fff; color: var(--ink); }
-  .intro h1, .closing h2 { color: var(--ink); }
-  section { padding: 2rem 0; break-inside: avoid; }
+  header.top, .hero .doors { display: none; }
+  .hero, .closing, .prog.feature, blockquote.quote { background: #fff; color: var(--ink); }
 }
 </style>
 </head>
@@ -196,19 +247,20 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
   <div class="wrap">
     <a class="logo" href="https://storefrontmastery.com" title="Go to storefrontmastery.com"><img src="storefront-mastery-logo-white.png" alt="Storefront Mastery home" width="119" height="36"></a>
     <nav aria-label="Page sections">
-      <a href="#how">How pricing works</a>
-      <a href="#program">Flagship Program</a>
-      <a href="#services">Services</a>
+      <a href="#programs">Programs</a>
+      <a href="#why">Why us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#services">More services</a>
       <a href="#terms">Terms</a>
       <a class="site" href="https://storefrontmastery.com">storefrontmastery.com<span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="cta" href="mailto:hello@storefrontmastery.com?subject=Proposal%20request">Request a proposal</a>
+      <a class="cta" href="mailto:hello@storefrontmastery.com?subject=Program%20inquiry">Talk with us</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<div class="intro" id="top">
+<div class="hero" id="top">
   <svg class="doors" viewBox="0 0 420 300" aria-hidden="true">
     <g fill="#8FCBFF">
       <path d="M0 40 L60 26 L60 130 L0 116 Z"/><path d="M80 40 L140 26 L140 130 L80 116 Z"/><path d="M160 40 L220 26 L220 130 L160 116 Z"/><path d="M240 40 L300 26 L300 130 L240 116 Z"/><path d="M320 40 L380 26 L380 130 L320 116 Z"/>
@@ -216,117 +268,204 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
     </g>
   </svg>
   <div class="wrap">
-    <p class="kicker">Storefront Mastery · Pricing schedule 2026–2027</p>
-    <h1>Make downtowns worth the trip.</h1>
-    <p class="lede">Storefront Mastery is a downtown experience strategy practice. We work with special improvement districts, BIDs, Main Street programs, and municipalities to give people more reasons to visit a downtown, stay longer, and come back.</p>
-    <p>The work sits where the single business meets the district: storefronts, customer experience, business clusters, and the rules that govern what owners can build. We diagnose the street, find the few moves with the most leverage, and carry them toward visible change. Founded in 2019 by architect and urbanist Jaime J. Izurieta, based in Montclair, New Jersey.</p>
-    <p>This page lists what every service costs, so you can plan a budget, compare options, and bring a number to your board before we talk. Every price is fixed. Nothing is billed by the hour unless you ask for advisory time. For projects, writing, and books, visit <a href="https://storefrontmastery.com" style="color:#fff;font-weight:600">storefrontmastery.com</a>.</p>
-    <div class="onpage">
-      <a href="#how"><small>01</small><strong>How pricing works</strong></a>
-      <a href="#program"><small>02</small><strong>The Flagship Program</strong></a>
-      <a href="#services"><small>03</small><strong>More services</strong></a>
-      <a href="#terms"><small>04</small><strong>Travel, credits, and terms</strong></a>
+    <p class="kicker">Storefront Mastery · Programs and pricing</p>
+    <h1>Better storefronts. Stronger main streets.</h1>
+    <p class="lede">We are a downtown experience strategy practice. We help downtown organizations turn storefront improvement spending into better-performing businesses and more attractive main streets.</p>
+    <p class="services-line">Workshops · Storefront Assessments · District Strategy</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#programs">Explore Our Programs</a>
+      <a class="quiet" href="https://storefrontmastery.com">See our work at storefrontmastery.com</a>
+    </div>
+    <div class="prices" aria-label="Program prices">
+      <a href="#align"><small>Phase 1 · Align</small><strong>$1,500</strong></a>
+      <a href="#assess"><small>Phase 2 · Assess</small><strong>$7,900</strong></a>
+      <a href="#activate"><small>Phase 3 · Activate</small><strong>$14,950</strong></a>
     </div>
   </div>
 </div>
 
-<section id="how">
+<section id="programs" class="mist">
   <div class="wrap">
-    <p class="label">01 · How pricing works</p>
-    <h2>Start small. Every first step counts toward the next.</h2>
-    <p class="sub">This page covers four kinds of work: the Flagship Program for districts, Storefront Accelerators for individual businesses, code reform for municipalities, and facilitation and advice. Every price is fixed and listed here.</p>
+    <p class="label">Programs</p>
+    <h2>Three phases. Each one builds on the last.</h2>
+    <p class="sub">Start where your downtown is today. Each phase includes the one before it, so a district that needs all three can take them in order without paying twice. Every price is fixed.</p>
 
-    <div class="ladders">
-      <div class="ladder">
-        <p class="track">Flagship Program<small>For districts</small></p>
-        <ol>
-          <li><span>Tier 1 · Align</span><b>$1,500</b></li>
-          <li><span>Tier 2 · Diagnose</span><b>$7,900</b></li>
-          <li><span>Tier 3 · Transform</span><b>$14,950</b></li>
-        </ol>
-      </div>
-      <div class="ladder">
-        <p class="track">Code reform<small>For municipalities</small></p>
-        <ol>
-          <li><span>Code Friction Audit</span><b>$2,450</b></li>
-          <li><span>Retail Design Code Refresh</span><b>$16,950</b></li>
-        </ol>
-      </div>
-    </div>
-
-    <p class="explain">The logic is the same on every track. The first step is small enough to approve quickly, and it shows you what the larger step would fix. If you continue within six months, its full fee comes off the next step, so you never pay twice for the same ground.</p>
-  </div>
-</section>
-
-<section id="program" class="mist">
-  <div class="wrap">
-    <p class="label">02 · The Flagship Program: Storefront Transformation</p>
-    <h2>Three tiers. One price for every district.</h2>
-    <p class="sub">Each tier includes everything in the one before it. Prices cover corridors of up to 80 ground-floor storefronts; larger districts are quoted on request.</p>
-
-    <div class="tiers">
-      <article class="tier">
-        <p class="tname">Tier 1 · Align</p>
-        <h3>Alignment Workshop</h3>
+    <div class="programs">
+      <article class="prog" id="align">
+        <p class="num">Phase 1</p>
+        <p class="name">ALIGN</p>
         <p class="amt">$1,500</p>
+        <p class="outcome">Get everyone moving in the same direction.</p>
+        <p class="desc">A focused workshop where downtown leaders and stakeholders set shared priorities, name the opportunities, and agree on a first joint step.</p>
+        <p class="best"><b>Best for</b>Downtown organizations that need agreement before committing to improvements.</p>
+        <h4>What you get</h4>
         <ul>
-          <li>Two-hour working session for owners, staff, and board</li>
-          <li>Shared vision, the missing customer, reasons to visit, neighbors as partners</li>
+          <li>Two-hour working session for business owners, staff, and board</li>
+          <li>Four questions worked through together: shared vision, the missing customer, reasons to visit, neighbors as partners</li>
           <li>One-page summary of a joint pilot with roles, a date, and a measure of success</li>
           <li>Virtual option, $1,250</li>
         </ul>
-        <p class="for">Full fee credited toward Tier 2 or Tier 3 within 6 months. Your Tier 1 session counts as the Tier 2 workshop; there is no second workshop.</p>
+        <p class="credit">The full fee is credited toward ASSESS or ACTIVATE within 6 months.</p>
+        <a class="go" href="mailto:hello@storefrontmastery.com?subject=ALIGN%20workshop%20inquiry">Ask about ALIGN</a>
       </article>
-      <article class="tier feature">
-        <p class="tname">Tier 2 · Diagnose</p>
-        <h3>Workshop, corridor, and storefronts</h3>
+
+      <article class="prog feature" id="assess">
+        <span class="flag">Our flagship program</span>
+        <p class="num">Phase 2</p>
+        <p class="name">ASSESS</p>
         <p class="amt">$7,900</p>
+        <p class="outcome">Know what to improve before spending.</p>
+        <p class="desc">A storefront and district performance assessment, built with our own field apps. You see how your corridor performs, and ten business owners each get a report that tells them what to fix first and what it will cost.</p>
+        <p class="best"><b>Best for</b>BIDs, Main Street organizations, and municipalities preparing a storefront improvement program or investing in their commercial district.</p>
+        <h4>What you get</h4>
         <ul>
-          <li>Corridor Vital Signs: the whole corridor scored across five dimensions and 20 measures, each traced to its evidence</li>
-          <li>10 Storefront Performance Scorecards, each with a one-page owner report</li>
-          <li>Alignment Workshop built on your own findings (if you started with Tier 1, a findings session updates your joint pilot instead)</li>
-          <li>Findings presentation to staff or board</li>
+          <li>Corridor Vital Signs: your corridor scored on five dimensions and 20 measures, each traced to its evidence</li>
+          <li>10 Storefront Performance Scorecards, a seven-page report for each business: a score out of 100, a fix-first list, one big design decision, a paint palette, the sign text, a concept budget, and a checklist for contractors</li>
+          <li>The ALIGN workshop, built on your own findings</li>
+          <li>Findings presentation to your staff or board</li>
         </ul>
-        <p class="for">Full fee credited toward Tier 3 within 12 months.</p>
+        <p class="credit">Already took ALIGN? Its fee comes off, and a findings session replaces the second workshop. The full ASSESS fee is credited toward ACTIVATE within 12 months.</p>
+        <a class="go" href="mailto:hello@storefrontmastery.com?subject=ASSESS%20program%20inquiry">Ask about ASSESS</a>
       </article>
-      <article class="tier">
-        <p class="tname">Tier 3 · Transform</p>
-        <h3>Diagnosis plus strategy</h3>
+
+      <article class="prog" id="activate">
+        <p class="num">Phase 3</p>
+        <p class="name">ACTIVATE</p>
         <p class="amt">$14,950</p>
+        <p class="outcome">Turn a downtown strategy into coordinated action.</p>
+        <p class="desc">ASSESS shows you what is holding your downtown back. ACTIVATE shows you what to do about it: five strategies built from your own data, each ready to put in front of a board, a council, or a funder.</p>
+        <p class="best"><b>Best for</b>Organizations ready to coordinate a larger downtown improvement initiative.</p>
+        <h4>What you get</h4>
         <ul>
-          <li>Everything in Tier 2</li>
-          <li>Idea Factory report: five strategies, each with the issue, the winning asset, the big idea, a toolkit, an action plan, and a quick win</li>
+          <li>Everything in ASSESS</li>
+          <li>The Idea Factory strategy report: five strategies for your district, each in six parts (see below)</li>
           <li>Strategy presentation to stakeholders</li>
         </ul>
-        <p class="for">Leads into Storefront Accelerators for the businesses the scorecards flag.</p>
+        <p class="credit">Leads into design work for the storefronts the scorecards flag (see Storefront Accelerator below).</p>
+        <a class="go" href="mailto:hello@storefrontmastery.com?subject=ACTIVATE%20program%20inquiry">Ask about ACTIVATE</a>
       </article>
     </div>
-    <p class="note">For New Jersey municipal payers: Tier 1 sits under the $2,625 quote threshold, Tier 2 under the $7,950 quote threshold for towns with a Qualified Purchasing Agent, and Tier 3 under the $17,500 pay-to-play threshold. Confirm thresholds with your purchasing agent.</p>
+
+    <div class="prog-notes">
+      <p><b>District size.</b> Prices cover corridors of up to 80 ground-floor storefronts. Larger districts are quoted on request.</p>
+      <p><b>Travel.</b> Included within 75 minutes' drive of Montclair, New Jersey. Beyond that, see the travel zones under terms.</p>
+      <p><b>For New Jersey towns.</b> ALIGN sits under the $2,625 quote threshold, ASSESS under $7,950 for towns with a Qualified Purchasing Agent, and ACTIVATE under the $17,500 pay-to-play threshold. Confirm with your purchasing agent.</p>
+    </div>
+
+    <div class="inside">
+      <div class="inside-block">
+        <p class="label">Inside ASSESS</p>
+        <h3>A report every business owner can act on.</h3>
+        <p>Each Storefront Performance Scorecard is seven pages, generated from what we record on the street and reviewed by us before it goes out. It turns a storefront into a short list of decisions.</p>
+        <ol class="anatomy">
+          <li><b>The score.</b> Performance out of 100 across five vital signs: upper facade, sign, windows, entrance, and lighting.</li>
+          <li><b>What it means.</b> What the score costs the business in visibility, invitation, upkeep, brand, and its effect on the block.</li>
+          <li><b>Fix first.</b> Every finding ranked, critical before watch, with the specific fix for each.</li>
+          <li><b>The prescription.</b> One big design decision, a paint palette matched to commercial paints, the sign text, and the window strategy.</li>
+          <li><b>The budget.</b> A concept budget for the work, with ranges and contingency, so owners know what to apply for.</li>
+          <li><b>The checklist.</b> One list to hand every painter, sign maker, and contractor before they quote.</li>
+        </ol>
+      </div>
+      <div class="inside-block dark">
+        <p class="label">Inside ACTIVATE</p>
+        <h3>Five strategies. Six parts each. Ready to present.</h3>
+        <p>The Idea Factory report turns your assessment into five moves your downtown can make. Every strategy follows the same six parts, so a board can compare them side by side and pick where to start.</p>
+        <ol class="anatomy">
+          <li><b>The issue.</b> A problem your own data shows, stated in one sentence.</li>
+          <li><b>The winning asset.</b> Something your downtown already has that can carry the fix.</li>
+          <li><b>The big idea.</b> One clear move that puts that asset to work.</li>
+          <li><b>The toolkit.</b> The approach and tools we recommend to carry it out.</li>
+          <li><b>The action plan.</b> The first steps, in order, so the idea leaves the page.</li>
+          <li><b>The quick win.</b> Something visible you can deliver early to show results and justify the next budget.</li>
+        </ol>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="services">
+<section id="why">
   <div class="wrap">
-    <p class="label">03 · More services</p>
-    <h2>For businesses, codes, and conversations.</h2>
-    <p class="sub">Prices apply within 75 minutes' drive of Montclair, New Jersey. Travel beyond that is listed under terms.</p>
+    <p class="label">Why Storefront Mastery</p>
+    <h2>A storefront does more work than most people see.</h2>
+    <p class="sub">Whether a downtown business draws people in depends on five things working together. We look at all five, for each business and for the district as a whole.</p>
+    <div class="why">
+      <div><h3>Visibility</h3><p>Can people find the business from the sidewalk, the car, and the phone?</p></div>
+      <div><h3>Communication</h3><p>Do the signs, windows, and facade say clearly what is inside and who it is for?</p></div>
+      <div><h3>Customer experience</h3><p>Does the entrance invite people in, and does the visit give them a reason to return?</p></div>
+      <div><h3>Commercial identity</h3><p>Does the business look like itself, and does the street read as a place with a character?</p></div>
+      <div><h3>Business and downtown</h3><p>Does each storefront help its neighbors and the district, or work against them?</p></div>
+    </div>
+    <div class="founder">
+      <h3>Who you work with</h3>
+      <p>Storefront Mastery was founded in 2019 by Jaime J. Izurieta, an architect and urbanist with more than 20 years of experience in city design, economic development, and historic preservation. He is a board member of Downtown New Jersey and is based in Montclair, New Jersey.</p>
+    </div>
+  </div>
+</section>
 
-    <p class="group">Businesses</p>
+<section id="proof" class="mist">
+  <div class="wrap">
+    <p class="label">Past and current clients</p>
+    <h2>Work in districts like yours.</h2>
+    <div class="proof">
+      <div class="case"><p class="place">Kansas City, MO</p><p>Completed a corridor diagnostic and strategic transformation roadmap for Midtown KC Now.</p></div>
+      <div class="case"><p class="place">Kearny, NJ</p><p>Achieved record-breaking buy-in for storefront upgrade grant applications for Kearny UEZ.</p></div>
+      <div class="case"><p class="place">Perth Amboy, NJ</p><p>Passed amendments modernizing the signage, storefront, and sidewalk ordinances.</p></div>
+    </div>
+    <blockquote class="quote">
+      <p>&ldquo;Storefront Mastery&rsquo;s transformative work has revitalized storefronts and energized our community, creating vibrant spaces that reflect the pulse of our city.&rdquo;</p>
+      <footer><b>James Cahill</b>Mayor, City of New Brunswick, NJ</footer>
+    </blockquote>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="label">Questions</p>
+    <h2>Common questions.</h2>
+    <div class="faq">
+      <details>
+        <summary>Which program is right for us?</summary>
+        <div class="a">
+          <p>Start with ALIGN if your board, staff, and businesses do not yet agree on priorities. Go to ASSESS if you are about to fund storefront improvements or a facade program and want to know where the money will do the most good. Go to ACTIVATE if you want a district strategy your partners can act on. Many districts need all three; each phase includes the one before it.</p>
+          <p>If you are unsure, tell us what you are trying to decide and we will recommend one.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What exactly is included?</summary>
+        <div class="a"><p>Each phase card lists every deliverable. ASSESS includes the ALIGN workshop, and ACTIVATE includes everything in ASSESS. Nothing is billed by the hour, and the price does not change unless the scope, travel, or schedule changes in writing.</p></div>
+      </details>
+      <details>
+        <summary>Are design services included?</summary>
+        <div class="a"><p>Each ASSESS scorecard includes a design prescription for that storefront: one big decision, a palette, the sign text, and a window strategy. Full design direction for a storefront is a separate service, the Storefront Accelerator, quoted per project. Architectural drawings, construction documents, and permit sets are not included in any phase.</p></div>
+      </details>
+      <details>
+        <summary>Can we start small and move up?</summary>
+        <div class="a"><p>Yes. The ALIGN fee is credited in full toward ASSESS or ACTIVATE within 6 months, and the ASSESS fee is credited in full toward ACTIVATE within 12 months. You never pay twice for the same work.</p></div>
+      </details>
+      <details>
+        <summary>Our district is large. Does the price change?</summary>
+        <div class="a"><p>The prices cover corridors of up to 80 ground-floor storefronts. For larger districts, we quote a fixed price before any work starts.</p></div>
+      </details>
+      <details>
+        <summary>How does an engagement begin?</summary>
+        <div class="a"><p>Email us with your district's name and the street you have in mind. We count the corridor from a map, confirm which phase fits, and send a fixed-price proposal. Work is scheduled once the agreement is signed. Engagements can be contracted by a district management corporation, a nonprofit, or a municipality.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="mist">
+  <div class="wrap">
+    <p class="label">More services</p>
+    <h2>For businesses, codes, and conversations.</h2>
+    <p class="sub">Specialized services, scoped separately from the three phases. Prices apply within 75 minutes' drive of Montclair, New Jersey.</p>
+
+    <p class="group">Storefront design</p>
     <div class="services">
       <article class="svc wide">
-        <header><h3>Storefront Accelerator</h3><span class="p">from $2,950 per storefront</span></header>
-        <p>One document per business that takes a storefront from diagnosis to a clear design direction: what the street sees today, the design and experience recommendations, and implementation guidelines that brief your contractor, sign maker, or fabricator on what to change and why. They produce the technical drawings, specifications, and pricing. Batch pricing applies when several storefronts are contracted together.</p>
-        <div class="table-scroll" style="margin:0.5rem 0 0.75rem">
-          <table>
-            <thead><tr><th>Storefronts in one contract</th><th class="num">Price per storefront</th><th class="num">Example</th></tr></thead>
-            <tbody>
-              <tr><th data-label="Storefronts in one contract">1 or 2</th><td class="num price" data-label="Price per storefront">$3,450</td><td class="num" data-label="Example">2 storefronts: $6,900</td></tr>
-              <tr><th data-label="Storefronts in one contract">3 to 8</th><td class="num price" data-label="Price per storefront">$3,250</td><td class="num" data-label="Example">5 storefronts: $16,250</td></tr>
-              <tr><th data-label="Storefronts in one contract">9 or more</th><td class="num price" data-label="Price per storefront">$2,950</td><td class="num" data-label="Example">10 storefronts: $29,500</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <dl><dt>Credit</dt><dd>$400 off for any storefront scored in Tier 2 within the previous 12 months</dd><dt>Excludes</dt><dd>Architectural drawings, construction documents, engineered plans, permit sets, and fabrication shop drawings</dd></dl>
+        <header><h3>Storefront Accelerator</h3><span class="p">Quoted per project</span></header>
+        <p>A custom design service for a single business or a group of storefronts: what the street sees today, design and experience recommendations, and implementation guidelines that brief your contractor, sign maker, or fabricator on what to change and why. They produce the technical drawings, specifications, and pricing. We scope and quote each project before work starts.</p>
+        <dl><dt>Credit</dt><dd>$400 off for any storefront scored in ASSESS within the previous 12 months</dd><dt>Excludes</dt><dd>Architectural drawings, construction documents, engineered plans, permit sets, and fabrication shop drawings</dd></dl>
       </article>
     </div>
 
@@ -364,9 +503,9 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
   </div>
 </section>
 
-<section id="terms" class="mist">
+<section id="terms">
   <div class="wrap">
-    <p class="label">04 · Travel, credits, and terms</p>
+    <p class="label">Travel, credits, and terms</p>
     <h2>What changes the number, and what does not.</h2>
     <p class="sub">Prices change only for scope, distance, schedule, or a trade agreed in writing. Every reduction below is in exchange for something specific.</p>
 
@@ -385,9 +524,9 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
       <div>
         <h3>Credits and upgrades</h3>
         <ul>
-          <li>Tier 1: full fee credited toward Tier 2 or Tier 3 within 6 months. The Tier 1 session counts as the Tier 2 workshop, and the Tier 2 findings session updates your joint pilot with the data.</li>
-          <li>Tier 2: full fee credited toward Tier 3 within 12 months.</li>
-          <li>Tier 2 scorecards: $400 per storefront credited toward that storefront's Accelerator within 12 months.</li>
+          <li>ALIGN: full fee credited toward ASSESS or ACTIVATE within 6 months. The ALIGN session counts as the ASSESS workshop, and the ASSESS findings session updates your joint pilot with the data.</li>
+          <li>ASSESS: full fee credited toward ACTIVATE within 12 months.</li>
+          <li>ASSESS scorecards: $400 per storefront credited toward that storefront's Accelerator within 12 months.</li>
           <li>Code Friction Audit: full fee credited toward a Code Refresh within 6 months.</li>
         </ul>
       </div>
@@ -396,8 +535,8 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
         <ul>
           <li>Two or more districts contracting together: 10% each.</li>
           <li>Full payment at signing: 5%.</li>
-          <li>Districts with an annual budget under $300,000: up to 15% on Tier 2, Tier 3, or an Accelerator batch, in exchange for case-study and photo rights.</li>
-          <li>Combined reductions are capped at 15% and do not apply to Tier 1, the audit, or the Code Refresh.</li>
+          <li>Districts with an annual budget under $300,000: up to 15% on ASSESS, ACTIVATE, or an Accelerator batch, in exchange for case-study and photo rights.</li>
+          <li>Combined reductions are capped at 15% and do not apply to ALIGN, the audit, or the Code Refresh.</li>
         </ul>
       </div>
       <div>
@@ -422,9 +561,9 @@ footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); 
 
 <section class="closing">
   <div class="wrap">
-    <h2>Would someone cross town for your downtown?</h2>
-    <p>Send us the name of your district and the street you have in mind. We will count the corridor, confirm the class, and return a fixed-price proposal.</p>
-    <a class="btn" href="mailto:hello@storefrontmastery.com?subject=Proposal%20request"><span class="dot"></span>hello@storefrontmastery.com</a>
+    <h2>Tell us about your downtown.</h2>
+    <p>Send us the name of your district, the street you have in mind, and what you are trying to decide. We will recommend where to start and send a fixed-price proposal.</p>
+    <a class="btn" href="mailto:hello@storefrontmastery.com?subject=Program%20inquiry"><span class="dot"></span>hello@storefrontmastery.com</a>
   </div>
 </section>
 
