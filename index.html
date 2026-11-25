@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing | Storefront Mastery</title>
-<meta name="description" content="The Storefront Mastery Flagship Program for downtown organizations, in three tiers: ALIGN ($1,500), ASSESS ($7,900), and ACTIVATE ($14,950). Workshops, storefront assessments, and district strategy from Storefront Mastery.">
+<meta name="description" content="Start with the Storefront Mastery Corridor Diagnostic ($1,200): two hours on your corridor and a same-day report. Then the Flagship Program, ALIGN + ASSESS ($4,950) and ACTIVATE ($13,800), plus storefront design, marketing plans, and code reform.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
@@ -138,15 +138,6 @@ h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
 .founder h3 { font-size: 1.1rem; }
 .founder p { color: var(--muted); }
 
-/* proof */
-.proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2rem 0 2.5rem; }
-.case { background: #fff; border: 1px solid var(--rule); padding: 1.5rem; }
-.case .place { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem; }
-.case p { font-size: 1rem; }
-blockquote.quote { background: var(--navy); color: #fff; padding: 2.25rem 2.5rem; border-left: 4px solid var(--red); }
-blockquote.quote p { font-size: 1.3rem; line-height: 1.45; margin-bottom: 1rem; max-width: 52ch; }
-blockquote.quote footer { background: none; padding: 0; color: #B9CBE0; font-size: 0.92rem; }
-blockquote.quote footer b { color: #fff; display: block; }
 
 /* faq */
 .faq { max-width: 820px; }
@@ -203,6 +194,9 @@ body > footer a { color: #fff; font-weight: 600; text-decoration: none; }
 body > footer .sitebtn { border: 1px solid rgba(255,255,255,0.45); padding: 0.8rem 1.2rem; border-radius: 2px; display: inline-block; }
 body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 
+@media (max-width: 1440px) {
+  .top nav a.nav-x { display: none; }
+}
 @media (max-width: 1080px) {
   .top nav a:not(.cta):not(.site) { display: none; }
   .why { grid-template-columns: repeat(3, 1fr); }
@@ -239,6 +233,127 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
   header.top, .hero .doors { display: none; }
   .hero, .closing, .prog.feature, blockquote.quote { background: #fff; color: var(--ink); }
 }
+
+/* v2.1 additions */
+.hero .grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 3rem; align-items: center; position: relative; z-index: 1; }
+.dx-card { background: #fff; color: var(--navy); padding: 2rem 1.9rem; border-top: 6px solid var(--red); box-shadow: 0 24px 50px rgba(0,0,0,0.28); }
+.dx-card .tag { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem; }
+.dx-card .name { font-size: 1.6rem; font-weight: 800; line-height: 1.1; margin-bottom: 0.6rem; }
+.dx-card .amt { font-size: 3rem; font-weight: 800; line-height: 1; margin-bottom: 1.1rem; }
+.dx-card ul { list-style: none; margin-bottom: 1.4rem; }
+.dx-card li { padding: 0.55rem 0 0.55rem 1.4rem; border-top: 1px solid var(--rule); position: relative; font-weight: 600; }
+.dx-card li::before { content: ""; position: absolute; left: 0; top: 1.05rem; width: 8px; height: 8px; background: var(--red); }
+.btn-red { background: var(--red); color: #fff; display: block; text-align: center; }
+.btn-red:hover { background: var(--navy); }
+.dx-card .fine { font-size: 0.82rem; color: var(--muted); margin-top: 0.8rem; }
+
+.btn-outline { border: 1.5px solid var(--blue); color: var(--blue); background: transparent; }
+.btn-outline:hover { background: var(--blue); color: #fff; }
+.btn-ghost { border: 1px solid rgba(255,255,255,0.5); color: #fff; }
+.btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.25rem; }
+
+/* diagnostic section */
+.dx { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.dx-block { background: #fff; border: 1px solid var(--rule); padding: 2rem 1.9rem; }
+.dx-block h3 { font-size: 1.35rem; margin-bottom: 0.6rem; }
+.dx-block > p { color: var(--muted); margin-bottom: 1.1rem; }
+.signs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--rule); }
+.signs div { padding: 0.75rem 0.5rem 0.75rem 0; border-bottom: 1px solid var(--rule); font-weight: 700; font-size: 0.97rem; }
+.signs div span { display: block; font-weight: 400; color: var(--muted); font-size: 0.88rem; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.25rem; }
+.steps div { border-top: 3px solid var(--red); padding-top: 0.9rem; }
+.steps b { display: block; font-size: 1.05rem; margin-bottom: 0.25rem; }
+.steps p { color: var(--muted); font-size: 0.93rem; }
+
+/* bridge into the program */
+.bridge { background: var(--blue); color: #fff; padding: 3rem 0; border: 0; }
+.bridge .wrap { display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.bridge h2 { color: #fff; margin: 0; max-width: 26ch; font-size: clamp(1.5rem, 2.8vw, 2.1rem); }
+.bridge p { color: #D9E6F5; margin-top: 0.5rem; }
+.bridge .btn { background: #fff; color: var(--blue); }
+.bridge .btn:hover { background: var(--navy); color: #fff; }
+.prog .alt { font-size: 0.95rem; font-weight: 700; margin: -0.6rem 0 1.1rem; color: var(--blue); }
+.prog.feature .alt { color: var(--window); }
+
+/* approach */
+.approach { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 3rem; }
+.approach div { border-top: 3px solid var(--blue); padding-top: 1rem; }
+.approach .n { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); margin-bottom: 0.35rem; }
+.approach h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.approach p { color: var(--muted); font-size: 0.97rem; }
+.creds { list-style: none; margin-top: 1rem; }
+.creds li { padding: 0.45rem 0 0.45rem 1.2rem; border-top: 1px solid var(--rule); position: relative; color: var(--muted); font-size: 0.95rem; }
+.creds li::before { content: ""; position: absolute; left: 0; top: 0.95rem; width: 6px; height: 6px; background: var(--blue); }
+
+/* implementation, the prominent services section */
+section.impl { background: var(--navy); color: #fff; border: 0; }
+.impl .label { color: var(--window); }
+.impl h2 { color: #fff; }
+.impl .sub { color: #B9CBE0; }
+.impl .group { color: #fff; }
+.impl .group::after { background: rgba(143,203,255,0.25); }
+.impl .svc { border: 0; color: var(--ink); }
+.impl .svc.hero-svc { border-top: 6px solid var(--red); padding: 2.25rem 2rem; }
+.impl .svc.hero-svc h3 { font-size: 1.6rem; }
+.impl .svc.hero-svc .p { font-size: 1.5rem; }
+.impl .lever { background: var(--navy-2); border: 1px solid rgba(143,203,255,0.25); padding: 1.5rem 1.75rem; margin-bottom: 1.25rem; }
+.impl .lever p { color: #D9E6F5; max-width: 80ch; }
+.impl .lever b { color: #fff; }
+.svc ul.inc { list-style: none; margin: 0 0 0.9rem; }
+.svc ul.inc li { padding: 0.4rem 0 0.4rem 1.2rem; border-top: 1px solid var(--rule); position: relative; font-size: 0.94rem; }
+.svc ul.inc li::before { content: ""; position: absolute; left: 0; top: 0.9rem; width: 6px; height: 6px; background: var(--blue); }
+.svc .go { display: inline-block; margin-top: 1rem; font-weight: 700; text-decoration: none; padding: 0.75rem 1.1rem; border: 1.5px solid var(--blue); color: var(--blue); border-radius: 2px; }
+.svc .go:hover { background: var(--blue); color: #fff; }
+.services.three { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 900px) {
+  .hero .grid, .dx, .steps, .approach, .services.three { grid-template-columns: 1fr; }
+  .dx-block { padding: 1.5rem 1.25rem; }
+  .dx-card { padding: 1.6rem 1.3rem; }
+  .impl .svc.hero-svc { padding: 1.6rem 1.25rem; }
+}
+@media (max-width: 640px) {
+  .signs { grid-template-columns: 1fr; }
+  .btn-row .btn { width: 100%; text-align: center; }
+}
+
+.closing .btn.btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.6); }
+.closing .btn.btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+/* v2.2b: situations, benefits, grant block */
+.fit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fit a { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--rule); padding: 1.4rem 1.5rem; text-decoration: none; color: var(--ink); min-width: 0; }
+.fit a:hover { border-color: var(--blue); box-shadow: 0 10px 24px rgba(8,29,49,0.08); }
+.fit .sit { font-size: 1.08rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.5rem; }
+.fit .reason { color: var(--muted); font-size: 0.93rem; margin-bottom: 1rem; }
+.fit .pick { margin-top: auto; border-top: 1px solid var(--rule); padding-top: 0.7rem; font-weight: 700; color: var(--blue); font-size: 0.95rem; }
+.fit .pick span { color: var(--muted); font-weight: 600; }
+.gains { list-style: none; margin: 0 0 1.25rem; }
+.gains li { padding: 0.45rem 0 0.45rem 1.5rem; position: relative; font-size: 0.94rem; }
+.gains li::before { content: "+"; position: absolute; left: 0; top: 0.35rem; font-weight: 800; color: var(--red); font-size: 1.05rem; }
+.gains li::before, .prog ul.gains li::before { content: "+"; width: auto; height: auto; background: none; left: 0; top: 0.35rem; font-weight: 800; color: var(--red); font-size: 1.05rem; line-height: 1.2; }
+.prog.feature ul.gains li::before { color: var(--window); background: none; }
+.dx-uses { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem; }
+.dx-uses > div { background: var(--mist); padding: 1.5rem 1.6rem; }
+.dx-uses h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+.grant { margin-top: 3.5rem; background: #fff; border: 1px solid var(--rule); border-top: 6px solid var(--red); padding: 2.25rem 2rem; }
+.grant h3 { font-size: 1.6rem; margin-bottom: 0.6rem; max-width: 30ch; }
+.grant > p { color: var(--muted); margin-bottom: 1.5rem; }
+.grant .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grant h4 { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+.grant .cols p, .grant .cols li { color: var(--muted); font-size: 0.93rem; }
+.grant .cols ul { list-style: none; }
+.grant .cols li { padding: 0.4rem 0; border-top: 1px solid var(--rule); }
+.grant .cols li b { color: var(--ink); }
+.grant .cols p.math { font-size: 2.2rem; font-weight: 800; color: var(--navy); line-height: 1; margin: 0.25rem 0 0.5rem; }
+.grant .scope { margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 1rem; }
+.svc dl.uses { margin-top: 0.25rem; }
+.impl .lever .gains li { color: #D9E6F5; }
+@media (max-width: 900px) {
+  .fit, .dx-uses, .grant .cols { grid-template-columns: 1fr; }
+  .grant { padding: 1.6rem 1.25rem; }
+}
 </style>
 </head>
 <body>
@@ -247,13 +362,15 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
   <div class="wrap">
     <a class="logo" href="https://storefrontmastery.com" title="Go to storefrontmastery.com"><img src="storefront-mastery-logo-white.png" alt="Storefront Mastery home" width="119" height="36"></a>
     <nav aria-label="Page sections">
+      <a href="#diagnostic">Diagnostic</a>
+      <a href="#fit">Where to start</a>
       <a href="#programs">Flagship Program</a>
-      <a href="#why">Why us</a>
+      <a href="#implementation">Implementation</a>
+      <a class="nav-x" href="#approach">Our approach</a>
+      <a class="nav-x" href="#terms">Terms</a>
       <a href="#faq">FAQ</a>
-      <a href="#services">More services</a>
-      <a href="#terms">Terms</a>
       <a class="site" href="https://storefrontmastery.com">storefrontmastery.com<span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="cta" href="mailto:hello@storefrontmastery.com?subject=Program%20inquiry">Talk with us</a>
+      <a class="cta" href="mailto:hello@storefrontmastery.com?subject=Corridor%20Diagnostic%20booking">Book a diagnostic</a>
     </nav>
   </div>
 </header>
@@ -268,44 +385,154 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
     </g>
   </svg>
   <div class="wrap">
-    <p class="kicker">Storefront Mastery · Pricing</p>
-    <h1>Better storefronts. Stronger main streets.</h1>
-    <p class="lede">We are a downtown experience strategy practice. We help downtown organizations turn storefront improvement spending into better-performing businesses and more attractive main streets.</p>
-    <p class="services-line">Workshops · Storefront Assessments · District Strategy</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="#programs">Explore the Flagship Program</a>
-      <a class="quiet" href="https://storefrontmastery.com">See our work at storefrontmastery.com</a>
+    <div class="grid">
+      <div>
+        <p class="kicker">Storefront Mastery · Pricing</p>
+        <h1>Know what's broken before you fix it.</h1>
+        <p class="lede">Great downtowns are made block by block, by people who can read a facade, a sign code, and a sidewalk at the same time. We are a corridor diagnostics and advisory practice led by an architect and urbanist, and every engagement starts on your street.</p>
+        <p class="services-line">Diagnose · Align · Assess · Activate · Implement</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#diagnostic">See the Corridor Diagnostic</a>
+          <a class="btn btn-ghost" href="https://storefrontmastery.com">Go to the main page to see who we've worked with<span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <aside class="dx-card" aria-label="Corridor Diagnostic price">
+        <p class="tag">Start here</p>
+        <p class="name">Corridor Diagnostic</p>
+        <p class="amt">$1,200</p>
+        <ul>
+          <li>Two hours on your corridor</li>
+          <li>Immediate report, delivered the same day</li>
+          <li>Every block scored and the fixes ranked</li>
+        </ul>
+        <a class="btn btn-red" href="mailto:hello@storefrontmastery.com?subject=Corridor%20Diagnostic%20booking">Book the Corridor Diagnostic</a>
+        <p class="fine">Flat fee. Travel included within 75 minutes of Montclair, NJ.</p>
+      </aside>
     </div>
-    <div class="prices" aria-label="Program prices">
-      <a href="#align"><small>Tier 1 · Align</small><strong>$1,500</strong></a>
-      <a href="#assess"><small>Tier 2 · Assess</small><strong>$7,900</strong></a>
-      <a href="#activate"><small>Tier 3 · Activate</small><strong>$14,950</strong></a>
+  </div>
+</div>
+
+<section id="diagnostic">
+  <div class="wrap">
+    <p class="label">The Corridor Diagnostic · $1,200</p>
+    <h2>Two hours on your street. A report the same day.</h2>
+    <p class="sub">Before anyone spends a grant dollar, redesigns a facade, or rewrites a rule, you should know what your corridor is doing to the people who walk it. The Corridor Diagnostic is a structured walk of your main street, recorded block by block in our Corridor Vital Signs field app, with the findings report delivered as soon as the walk is done.</p>
+
+    <div class="dx">
+      <div class="dx-block">
+        <p class="label">What we measure</p>
+        <h3>Six vital signs, observed on the street.</h3>
+        <p>Every measure comes from what can be seen and checked on the walk, so the findings rest on evidence your board can verify for itself.</p>
+        <div class="signs">
+          <div>Visibility<span>Can people find the businesses from the sidewalk and the car?</span></div>
+          <div>Parking and arrival<span>Is it clear where to park and how to get in?</span></div>
+          <div>Accessibility<span>Can everyone reach the door and move along the block?</span></div>
+          <div>Street appeal<span>Do the facades and sidewalks make people want to stay?</span></div>
+          <div>Evening life<span>Does the street stay lit, open, and inviting after five?</span></div>
+          <div>Care and safety<span>Does the corridor look looked-after and feel safe?</span></div>
+        </div>
+      </div>
+      <div class="dx-block">
+        <p class="label">What you receive</p>
+        <h3>A report you can put in front of a board the next morning.</h3>
+        <p>One PDF, scorecard and findings together.</p>
+        <ol class="anatomy">
+          <li><b>The scorecard.</b> Your corridor scored on each vital sign, with the evidence behind every score.</li>
+          <li><b>Block by block.</b> Each block assessed on its own, so you see where the corridor holds and where it breaks.</li>
+          <li><b>The winning asset.</b> What your street already has that can carry the fix.</li>
+          <li><b>Findings and recommendations.</b> What each vital sign tells you and what to do about it first.</li>
+        </ol>
+      </div>
     </div>
+
+    <div class="dx-uses">
+      <div>
+        <h3>Best for</h3>
+        <ul class="gains">
+          <li>Directors who need a clear, shared read of the corridor before the next board meeting or budget request</li>
+          <li>Districts about to fund storefront grants, a streetscape project, or events, and want to aim the money first</li>
+          <li>New directors and new boards who want a baseline to measure their own tenure against</li>
+          <li>Towns weighing a code change who need evidence from the street</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Why it pays off</h3>
+        <ul class="gains">
+          <li>You stop guessing. Every problem is tied to a block and a piece of evidence</li>
+          <li>Your board, your city, and your businesses look at the same facts, which makes partnership easier</li>
+          <li>You find the winning asset you can build on, along with the gaps</li>
+          <li>Under New Jersey's $2,625 quote threshold, so it usually needs no procurement step</li>
+          <li>Two hours of your time, and the report is in hand the same day</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div><b>Book</b><p>Send us your district and the stretch of street you want read. We confirm a date.</p></div>
+      <div><b>Walk</b><p>Two hours on your corridor, with your staff welcome to walk along.</p></div>
+      <div><b>Know</b><p>Your report arrives the same day, with a clear view of what's broken and where to start.</p></div>
+    </div>
+    <p class="note">The Diagnostic is a standalone product with a flat fee of $1,200. Its fee is not credited toward other services. ACTIVATE includes its own Diagnostic, walked with your downtown leaders.</p>
+  </div>
+</section>
+
+<section id="fit" class="mist">
+  <div class="wrap">
+    <p class="label">Where to start</p>
+    <h2>Start from your situation.</h2>
+    <p class="sub">Find the line that sounds like your downtown right now. Each one points to the service built for it.</p>
+    <div class="fit">
+      <a href="#diagnostic"><p class="sit">"We don't know exactly what's wrong with our main street."</p><p class="reason">Get a block-by-block read and a ranked list of fixes the same day.</p><p class="pick">Corridor Diagnostic <span>· $1,200</span></p></a>
+      <a href="#assess"><p class="sit">"We just won a storefront or facade grant."</p><p class="reason">Assess every storefront before the first check goes out, so each grant buys a fix the street will notice.</p><p class="pick">ASSESS <span>· $3,950</span></p></a>
+      <a href="#align"><p class="sit">"Our board, staff, and businesses want different things."</p><p class="reason">Agree on priorities and a first joint pilot, then back it with storefront data.</p><p class="pick">ALIGN + ASSESS <span>· $4,950</span></p></a>
+      <a href="#activate"><p class="sit">"We need a district strategy we can fund and present."</p><p class="reason">Five strategies built from your own data, ready for a board, a council, or a funder.</p><p class="pick">ACTIVATE <span>· $13,800</span></p></a>
+      <a href="#accelerator"><p class="sit">"A business is ready to upgrade its storefront."</p><p class="reason">Design recommendations for the whole facade and a brief your contractor can quote from.</p><p class="pick">Storefront Accelerator <span>· from $2,950</span></p></a>
+      <a href="#marketing"><p class="sit">"We upgraded storefronts and nobody noticed."</p><p class="reason">A plan to tell the story of the upgrade and the people behind it, so customers come.</p><p class="pick">Marketing plan <span>· quoted per project</span></p></a>
+      <a href="#audit"><p class="sit">"Our code is fine," says the town.</p><p class="reason">Show where compliant storefronts still fail the street, before anyone is asked to change the rules.</p><p class="pick">Code Friction Audit <span>· $2,450</span></p></a>
+      <a href="#refresh"><p class="sit">"Our rules keep producing bad storefronts."</p><p class="reason">Rewrite the sign, storefront, facade, and design-review rules so every future storefront improves.</p><p class="pick">Retail Design Code Refresh <span>· $16,950</span></p></a>
+      <a href="#facilitation"><p class="sit">"We need everyone in one room to decide."</p><p class="reason">A facilitated working day to design a block, a cluster, or a pilot together.</p><p class="pick">Charrette <span>· $3,500 per day</span></p></a>
+    </div>
+  </div>
+</section>
+
+<div class="bridge">
+  <div class="wrap">
+    <div>
+      <h2>Now you know what's broken. Here is how we fix it.</h2>
+      <p>The Flagship Program takes your district from agreement to assessment to a strategy you can fund.</p>
+    </div>
+    <a class="btn" href="#programs">See the Flagship Program</a>
   </div>
 </div>
 
 <section id="programs" class="mist">
   <div class="wrap">
     <p class="label">The Flagship Program</p>
-    <h2>Three ways to move your downtown forward.</h2>
-    <p class="sub">Start with what you need today. Each program builds on the previous one, so you can expand without paying twice.</p>
+    <h2>Three tiers to move your downtown forward.</h2>
+    <p class="sub">Each tier builds on the one before it. Take ALIGN and ASSESS together for $4,950, or go all the way with ACTIVATE, which includes both.</p>
 
     <div class="programs">
       <article class="prog" id="align">
         <p class="num">Tier 1</p>
         <p class="name">ALIGN</p>
-        <p class="amt">$1,500</p>
+        <p class="amt">$1,950</p>
+        <p class="alt">About half off inside ALIGN + ASSESS</p>
         <p class="outcome">Get everyone moving in the same direction.</p>
         <p class="desc">A focused workshop where downtown leaders and stakeholders set shared priorities, name the opportunities, and agree on a first joint step.</p>
-        <p class="best"><b>Best for</b>Downtown organizations that need agreement before committing to improvements.</p>
+        <p class="best"><b>Best for</b>Downtown organizations whose board, staff, and businesses need to agree on priorities before committing to improvements.</p>
+        <h4>Why it pays off</h4>
+        <ul class="gains">
+          <li>Everyone leaves with the same priorities and one pilot to deliver together</li>
+          <li>Owners become partners in the program from day one</li>
+          <li>Built on master material, so you get a proven session at a fixed price</li>
+        </ul>
         <h4>What you get</h4>
         <ul>
           <li>Two-hour working session for business owners, staff, and board</li>
           <li>Four questions worked through together: shared vision, the missing customer, reasons to visit, neighbors as partners</li>
           <li>One-page summary of a joint pilot with roles, a date, and a measure of success</li>
-          <li>Virtual option, $1,250</li>
         </ul>
-        <p class="credit">The full fee is credited toward ASSESS or ACTIVATE within 6 months.</p>
+        <p class="credit">On its own, ALIGN is not credited toward other services. Taken with ASSESS as the $4,950 package, it costs about half as much and the full package fee credits toward ACTIVATE.</p>
         <a class="go" href="mailto:hello@storefrontmastery.com?subject=ALIGN%20workshop%20inquiry">Ask about ALIGN</a>
       </article>
 
@@ -313,49 +540,65 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
         <span class="flag">Built on our field apps</span>
         <p class="num">Tier 2</p>
         <p class="name">ASSESS</p>
-        <p class="amt">$7,900</p>
-        <p class="outcome">Know what to improve before spending.</p>
-        <p class="desc">A storefront and district performance assessment, built with our own field apps. You see how your corridor performs, and ten business owners each get a report that tells them what to fix first and what it will cost.</p>
-        <p class="best"><b>Best for</b>BIDs, Main Street organizations, and municipalities preparing a storefront improvement program or investing in their commercial district.</p>
+        <p class="amt">$3,950</p>
+        <p class="alt">$4,950 together with ALIGN</p>
+        <p class="outcome">Know what to improve on every storefront before spending.</p>
+        <p class="desc">A performance assessment of up to eight storefronts in a single field day, built with our own field apps. Each business owner gets a report that tells them what to fix first and what it will cost.</p>
+        <p class="best"><b>Best for</b>BIDs, Main Street organizations, UEZs, and municipalities holding storefront or facade grant money, or preparing an improvement program.</p>
+        <h4>Why it pays off</h4>
+        <ul class="gains">
+          <li>Each grant dollar goes to the fix that matters most on that storefront</li>
+          <li>Each report becomes the approved scope you attach to the grant agreement</li>
+          <li>Cost ranges let you check contractor quotes before you award</li>
+          <li>Your board and funder see why each project was chosen</li>
+        </ul>
         <h4>What you get</h4>
         <ul>
-          <li>Corridor Vital Signs: your corridor scored on five dimensions and 20 measures, each traced to its evidence</li>
-          <li>10 Storefront Performance Scorecards, a seven-page report for each business: a score out of 100, a fix-first list, one big design decision, a paint palette, the sign text, a concept budget, and a checklist for contractors</li>
-          <li>The ALIGN workshop, built on your own findings</li>
+          <li>Up to 8 Storefront Performance Scorecards, assessed in one day, a seven-page report for each business: a score out of 100, a fix-first list, one big design decision, a paint palette, the sign text, a concept budget, and a checklist for contractors</li>
           <li>Findings presentation to your staff or board</li>
+          <li>Additional storefronts, $350 each</li>
         </ul>
-        <p class="credit">Already took ALIGN? Its fee comes off, and a findings session replaces the second workshop. The full ASSESS fee is credited toward ACTIVATE within 12 months.</p>
+        <p class="credit">Move up to ACTIVATE within 6 months and the full fee comes off: $3,950 for ASSESS, or $4,950 for the ALIGN + ASSESS package.</p>
         <a class="go" href="mailto:hello@storefrontmastery.com?subject=ASSESS%20program%20inquiry">Ask about ASSESS</a>
       </article>
 
       <article class="prog" id="activate">
         <p class="num">Tier 3</p>
         <p class="name">ACTIVATE</p>
-        <p class="amt">$14,950</p>
+        <p class="amt">$13,800</p>
+        <p class="alt">Includes ALIGN and ASSESS</p>
         <p class="outcome">Turn a downtown strategy into coordinated action.</p>
-        <p class="desc">ASSESS shows you what is holding your downtown back. ACTIVATE shows you what to do about it: five strategies built from your own data, each ready to put in front of a board, a council, or a funder.</p>
-        <p class="best"><b>Best for</b>Organizations ready to coordinate a larger downtown improvement initiative.</p>
+        <p class="desc">ASSESS shows each business what to fix. ACTIVATE shows the district what to do: a Corridor Diagnostic walked with your downtown leaders, then five strategies built from your own data, each ready to put in front of a board, a council, or a funder.</p>
+        <p class="best"><b>Best for</b>Organizations ready to coordinate a larger downtown improvement initiative, or to build the case for a budget, a grant application, or a capital plan.</p>
+        <h4>Why it pays off</h4>
+        <ul class="gains">
+          <li>Your leaders and champions see the street's problems with their own eyes on the walk</li>
+          <li>A board can compare five moves side by side and pick where to start</li>
+          <li>Each strategy has a quick win to show results and justify the next budget</li>
+          <li>The Diagnostic, workshop, and storefront assessments come included</li>
+        </ul>
         <h4>What you get</h4>
         <ul>
-          <li>Everything in ASSESS</li>
+          <li>Everything in ALIGN and ASSESS</li>
+          <li>Corridor Diagnostic walkthrough with your downtown leaders and champions, assessed as we walk</li>
           <li>The Idea Factory strategy report: five strategies for your district, each in six parts (see below)</li>
           <li>Strategy presentation to stakeholders</li>
         </ul>
-        <p class="credit">Leads into design work for the storefronts the scorecards flag (see Storefront Accelerator below).</p>
+        <p class="credit">Leads straight into implementation: design for the storefronts the scorecards flag, marketing plans, and code reform.</p>
         <a class="go" href="mailto:hello@storefrontmastery.com?subject=ACTIVATE%20program%20inquiry">Ask about ACTIVATE</a>
       </article>
     </div>
 
     <div class="prog-notes">
       <p><b>Travel.</b> Included within 75 minutes' drive of Montclair, New Jersey. Beyond that, see the travel zones under terms.</p>
-      <p><b>For New Jersey towns.</b> ALIGN sits under the $2,625 quote threshold, ASSESS under $7,950 for towns with a Qualified Purchasing Agent, and ACTIVATE under the $17,500 pay-to-play threshold. Confirm with your purchasing agent.</p>
+      <p><b>For New Jersey towns.</b> The Diagnostic and ALIGN sit under the $2,625 quote threshold, ASSESS and ALIGN + ASSESS under $7,950 for towns with a Qualified Purchasing Agent, and ACTIVATE under the $17,500 pay-to-play threshold. Confirm with your purchasing agent.</p>
     </div>
 
     <div class="inside">
       <div class="inside-block">
         <p class="label">Inside ASSESS</p>
         <h3>A report every business owner can act on.</h3>
-        <p>Each Storefront Performance Scorecard is seven pages, generated from what we record on the street and reviewed by us before it goes out. It turns a storefront into a short list of decisions.</p>
+        <p>Each Storefront Performance Scorecard is seven pages, generated from what is recorded on the street and reviewed before it goes out. It turns a storefront into a short list of decisions.</p>
         <ol class="anatomy">
           <li><b>The score.</b> Performance out of 100 across five vital signs: upper facade, sign, windows, entrance, and lighting.</li>
           <li><b>What it means.</b> What the score costs the business in visibility, invitation, upkeep, brand, and its effect on the block.</li>
@@ -379,87 +622,51 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
         </ol>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="why">
-  <div class="wrap">
-    <p class="label">Why Storefront Mastery</p>
-    <h2>A storefront does more work than most people see.</h2>
-    <p class="sub">Whether a downtown business draws people in depends on five things working together. We look at all five, for each business and for the district as a whole.</p>
-    <div class="why">
-      <div><h3>Visibility</h3><p>Can people find the business from the sidewalk, the car, and the phone?</p></div>
-      <div><h3>Communication</h3><p>Do the signs, windows, and facade say clearly what is inside and who it is for?</p></div>
-      <div><h3>Customer experience</h3><p>Does the entrance invite people in, and does the visit give them a reason to return?</p></div>
-      <div><h3>Commercial identity</h3><p>Does the business look like itself, and does the street read as a place with a character?</p></div>
-      <div><h3>Business and downtown</h3><p>Does each storefront help its neighbors and the district, or work against them?</p></div>
-    </div>
-    <div class="founder">
-      <h3>Who you work with</h3>
-      <p>Storefront Mastery was founded in 2019 by Jaime J. Izurieta, an architect and urbanist with more than 20 years of experience in city design, economic development, and historic preservation. He is a board member of Downtown New Jersey and is based in Montclair, New Jersey.</p>
-    </div>
-  </div>
-</section>
-
-<section id="proof" class="mist">
-  <div class="wrap">
-    <p class="label">Past and current clients</p>
-    <h2>Work in districts like yours.</h2>
-    <div class="proof">
-      <div class="case"><p class="place">Kansas City, MO</p><p>Completed a corridor diagnostic and strategic transformation roadmap for Midtown KC Now.</p></div>
-      <div class="case"><p class="place">Kearny, NJ</p><p>Achieved record-breaking buy-in for storefront upgrade grant applications for Kearny UEZ.</p></div>
-      <div class="case"><p class="place">Perth Amboy, NJ</p><p>Passed amendments modernizing the signage, storefront, and sidewalk ordinances.</p></div>
-    </div>
-    <blockquote class="quote">
-      <p>&ldquo;Storefront Mastery&rsquo;s transformative work has revitalized storefronts and energized our community, creating vibrant spaces that reflect the pulse of our city.&rdquo;</p>
-      <footer><b>James Cahill</b>Mayor, City of New Brunswick, NJ</footer>
-    </blockquote>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap">
-    <p class="label">Questions</p>
-    <h2>Common questions.</h2>
-    <div class="faq">
-      <details>
-        <summary>Which program is right for us?</summary>
-        <div class="a">
-          <p>Start with ALIGN if your board, staff, and businesses do not yet agree on priorities. Go to ASSESS if you are about to fund storefront improvements or a facade program and want to know where the money will do the most good. Go to ACTIVATE if you want a district strategy your partners can act on. Many districts need all three; each tier includes the one before it.</p>
-          <p>If you are unsure, tell us what you are trying to decide and we will recommend one.</p>
+    <div class="grant" id="grants">
+      <p class="label">Holding a storefront or facade grant?</p>
+      <h3>Assess every storefront before the first check goes out.</h3>
+      <p>Without a plan, grant money goes to whatever each owner asks for first. ASSESS gives every business in your program a scored report with ranked upgrades and planning-level costs, so the money lands where it changes the street.</p>
+      <div class="cols">
+        <div>
+          <h4>What it prevents</h4>
+          <ul>
+            <li><b>Everyone asks for a sign.</b> The sign gets funded while the dark window and the dead entrance stay as they are.</li>
+            <li><b>Quotes for different jobs.</b> Without a written scope, each contractor bids on different work.</li>
+            <li><b>The fund runs dry mid-list.</b> The strongest projects show up late and find the pool spent.</li>
+          </ul>
         </div>
-      </details>
-      <details>
-        <summary>What exactly is included?</summary>
-        <div class="a"><p>Each tier card lists every deliverable. ASSESS includes the ALIGN workshop, and ACTIVATE includes everything in ASSESS. Nothing is billed by the hour, and the price does not change unless the scope, travel, or schedule changes in writing.</p></div>
-      </details>
-      <details>
-        <summary>Are design services included?</summary>
-        <div class="a"><p>Each ASSESS scorecard includes a design prescription for that storefront: one big decision, a palette, the sign text, and a window strategy. Full design direction for a storefront is a separate service, the Storefront Accelerator, from $2,950 per storefront. Architectural drawings, construction documents, and permit sets are not included in any tier.</p></div>
-      </details>
-      <details>
-        <summary>Can we start small and move up?</summary>
-        <div class="a"><p>Yes. The ALIGN fee is credited in full toward ASSESS or ACTIVATE within 6 months, and the ASSESS fee is credited in full toward ACTIVATE within 12 months. You never pay twice for the same work.</p></div>
-      </details>
-      <details>
-        <summary>How does an engagement begin?</summary>
-        <div class="a"><p>Email us with your district's name and the street you have in mind. We look at the corridor, confirm which tier fits, and send a fixed-price proposal. Work is scheduled once the agreement is signed. Engagements can be contracted by a district management corporation, a nonprofit, or a municipality.</p></div>
-      </details>
+        <div>
+          <h4>What you do with it</h4>
+          <ul>
+            <li>Attach each report to its grant agreement as the approved scope</li>
+            <li>Check contractor quotes against the cost ranges</li>
+            <li>Show your board and your funder why each project was funded</li>
+            <li>Keep the reports as the before picture for year-end reporting</li>
+          </ul>
+        </div>
+        <div>
+          <h4>What it costs against the grant</h4>
+          <p class="math">About 4¢</p>
+          <p>per grant dollar on a $100,000 program across eight businesses. Many programs allow technical assistance costs, so check whether your grant can cover the fee.</p>
+        </div>
+      </div>
+      <p class="scope">ASSESS reports are assessments. They do not include drawings, construction documentation, renderings, or technical specifications. Permits, drawings, and installation go through your contractors and licensed professionals. Owners choose which ranked upgrades to pursue, and your committee decides what the grant covers.</p>
     </div>
   </div>
 </section>
 
-<section id="services" class="mist">
+<section id="implementation" class="impl">
   <div class="wrap">
-    <p class="label">More services</p>
-    <h2>For businesses, codes, and conversations.</h2>
-    <p class="sub">Specialized services, scoped separately from the Flagship Program. Prices apply within 75 minutes' drive of Montclair, New Jersey.</p>
+    <p class="label">Implementation</p>
+    <h2>Where the findings turn into a better street.</h2>
+    <p class="sub">The diagnostic and the program tell you what to change. Implementation is how it gets changed: storefront upgrades designed for each business, marketing plans that make sure people notice, and the code reform that keeps the next storefront from repeating the old mistakes.</p>
 
-    <p class="group">Storefront design</p>
+    <p class="group">Design the upgrades</p>
     <div class="services">
-      <article class="svc wide">
+      <article class="svc wide hero-svc" id="accelerator">
         <header><h3>Storefront Accelerator</h3><span class="p">from $2,950 per storefront</span></header>
-        <p>A design service for one business or a group of storefronts: what the street sees today, design and experience recommendations, and implementation guidelines that brief your contractor, sign maker, or fabricator on what to change and why. They produce the technical drawings, specifications, and pricing. Batch pricing applies when several storefronts are contracted together.</p>
+        <p>A design service for one business or a group of storefronts, covering the whole facade: what the street sees today, design and experience recommendations, and implementation guidelines that brief your contractor, sign maker, or fabricator on what to change and why. They produce the technical drawings, specifications, and pricing. Batch pricing applies when several storefronts are contracted together.</p>
         <div class="table-scroll" style="margin:0.5rem 0 0.75rem">
           <table>
             <thead><tr><th>Storefronts in one contract</th><th class="num">Price per storefront</th><th class="num">Example</th></tr></thead>
@@ -470,45 +677,87 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
             </tbody>
           </table>
         </div>
+        <dl class="uses"><dt>Best for</dt><dd>Businesses ready to invest in their storefront, and districts funding upgrades for the storefronts their scorecards flagged</dd><dt>Why it pays off</dt><dd>The owner gets one clear direction for the whole facade, and the contractor, sign maker, and fabricator get a brief that keeps their quotes aimed at the same work</dd></dl>
         <dl><dt>Credit</dt><dd>$400 off for any storefront scored in ASSESS within the previous 12 months</dd><dt>Excludes</dt><dd>Architectural drawings, construction documents, engineered plans, permit sets, and fabrication shop drawings</dd></dl>
+        <a class="go" href="mailto:hello@storefrontmastery.com?subject=Storefront%20Accelerator%20inquiry">Ask about the Storefront Accelerator</a>
       </article>
     </div>
 
-    <p class="group">Code reform</p>
+    <p class="group">Tell the story</p>
     <div class="services">
-      <article class="svc">
+      <article class="svc wide" id="marketing">
+        <header><h3>Storefront and district marketing plans</h3><span class="p">Quoted per project</span></header>
+        <p>An upgraded storefront only pays off when people notice it. We plan how the story of the upgrade, the business, and the people behind it reaches the customers your district wants: what to say, who says it, where, and when. Built for a single business, a batch of upgraded storefronts, or the district as a whole, and quoted as a fixed fee before we start.</p>
+        <dl class="uses"><dt>Best for</dt><dd>Districts that have just finished upgrades, grand reopenings, and corridors whose businesses improved but whose reputation has not caught up</dd><dt>Why it pays off</dt><dd>The investment gets seen. Stories of owners and their upgrades bring customers, press, and the next round of funding</dd></dl>
+        <a class="go" href="mailto:hello@storefrontmastery.com?subject=Marketing%20plan%20inquiry">Ask about a marketing plan</a>
+      </article>
+    </div>
+
+    <p class="group">Change the rules</p>
+    <div class="lever">
+      <p><b>Code is the biggest lever on a main street.</b> Much of what fails on a corridor is fully compliant, because sign codes, storefront rules, and design review produce the street you have. Rewrite those rules and every future storefront improves, with or without a grant.</p>
+    </div>
+    <div class="services">
+      <article class="svc" id="audit">
         <header><h3>Code Friction Audit</h3><span class="p">$2,450</span></header>
         <p>For towns that believe their code works. A section-by-section read of your signage, storefront, facade, and design-review rules against what the street actually shows, with ten photographs of compliant outcomes that fail the street, a permit-path timeline, and a one-page friction score.</p>
-        <dl><dt>Credit</dt><dd>Full fee toward a Code Refresh within 6 months</dd></dl>
+        <dl><dt>Best for</dt><dd>Towns that believe their code works, and directors who need evidence before asking council for a rewrite</dd><dt>Why it pays off</dt><dd>It makes the cost of the current rules visible, under the $2,625 quote threshold</dd><dt>Credit</dt><dd>Full fee toward a Code Refresh within 6 months</dd></dl>
       </article>
-      <article class="svc">
+      <article class="svc" id="refresh">
         <header><h3>Retail Design Code Refresh</h3><span class="p">$16,950</span></header>
         <p>A town-wide rewrite of your signage, storefront, facade, and design-review provisions: section-by-section diagnosis, recommendations, draft ordinance language for your municipal attorney, and business-facing guidelines.</p>
-        <dl><dt>Includes</dt><dd>One stakeholder presentation and one planning board or council presentation</dd><dt>Added hearings</dt><dd>$1,000 each</dd><dt>Excludes</dt><dd>Legal review, adoption, and enforcement</dd></dl>
+        <dl><dt>Best for</dt><dd>Towns whose sign and storefront rules keep producing storefronts nobody wants</dd><dt>Why it pays off</dt><dd>Every future storefront improves without a grant, and owners get clear rules and a faster permit path</dd><dt>Includes</dt><dd>One stakeholder presentation and one planning board or council presentation</dd><dt>Added hearings</dt><dd>$1,000 each</dd><dt>Excludes</dt><dd>Legal review, adoption, and enforcement</dd></dl>
       </article>
     </div>
 
-    <p class="group">Facilitation and advice</p>
-    <div class="services">
+    <p class="group" id="facilitation">Facilitation and advice</p>
+    <div class="services three">
       <article class="svc">
-        <header><h3>Charrette or facilitated working day</h3><span class="p">$3,500 per day</span></header>
-        <p>A full on-site working day with stakeholders to design a block, a cluster, or a pilot. Preparation for a single day is included.</p>
-        <dl><dt>Travel</dt><dd>Beyond 75 minutes from Montclair, listed under terms</dd></dl>
+        <header><h3>Charrette or working day</h3><span class="p">$3,500 per day</span></header>
+        <p>A full on-site working day with stakeholders to design a block, a cluster, or a pilot. Preparation for a single day is included. Travel beyond 75 minutes from Montclair is listed under terms. Best for a block redesign, a cluster plan, or launching a pilot with everyone at the table.</p>
       </article>
       <article class="svc">
         <header><h3>Presentations and advisory</h3><span class="p">from $250</span></header>
-        <p>Extra meetings and ongoing advice for districts that want a second set of eyes between projects.</p>
-        <dl><dt>Added presentation</dt><dd>$750 per board, council, or merchant meeting, evenings included</dd><dt>Advisory</dt><dd>$250 per hour, two-hour minimum</dd><dt>Retainer</dt><dd>$1,800 per month for 8 hours, three-month minimum</dd></dl>
+        <p>Best for districts that want a second set of eyes between projects, or an expert voice at a board, council, or merchant meeting.</p>
+        <dl><dt>Added presentation</dt><dd>$750 per board, council, or merchant meeting</dd><dt>Advisory</dt><dd>$250 per hour, two-hour minimum</dd><dt>Retainer</dt><dd>$1,800 per month for 8 hours, three-month minimum</dd></dl>
       </article>
-      <article class="svc wide">
+      <article class="svc">
         <header><h3>Bespoke consulting</h3><span class="p">Quoted per engagement</span></header>
-        <p>For challenges that do not fit a standard service. Drawing on more than 20 years of experience in city design, economic development, and historic preservation, we scope the work around your question and quote a fixed fee before we start.</p>
+        <p>For challenges that do not fit a standard service. We scope the work around your question and quote a fixed fee before we start.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section id="terms">
+<section id="approach">
+  <div class="wrap">
+    <p class="label">Our approach</p>
+    <h2>Places are made block by block.</h2>
+    <p class="sub">Anyone can now generate a handsome picture of a downtown in seconds. Those images look like everywhere, which is another way of saying they look like nowhere. Your street's character lives in its real facades, its real signs, its real owners, and the rules that shaped them.</p>
+    <div class="approach">
+      <div><p class="n">One</p><h3>We read the block</h3><p>Every block has its own winning asset, its own weak frontage, and its own owners. We assess and prescribe at that scale, so every recommendation fits the place it is meant for.</p></div>
+      <div><p class="n">Two</p><h3>We design for the real street</h3><p>Our recommendations start from the buildings you have, the businesses inside them, and the history in their walls. The goal is a street that looks like itself, only better.</p></div>
+      <div><p class="n">Three</p><h3>We change the rules</h3><p>A grant fixes one facade once. A better code improves every facade that comes after it. That is why code reform sits at the center of our implementation work.</p></div>
+    </div>
+    <div class="founder">
+      <h3>Who you work with</h3>
+      <div>
+        <p>Storefront Mastery was founded in 2019 by Jaime J. Izurieta, an architect and urbanist with more than 20 years of experience in city design, economic development, and historic preservation. He is based in Montclair, New Jersey.</p>
+        <ul class="creds">
+          <li>Master of Architecture and MFA in Historic Preservation, SCAD; M.Sc. in Urban Management and Development, IHS Erasmus University Rotterdam</li>
+          <li>Former director of the Office of Urban Mechanics, City of Quito</li>
+          <li>Board member, Downtown New Jersey; member of the Congress for the New Urbanism since 2012</li>
+          <li>Author of <i>Main Street Mavericks</i> and <i>The Ten No-B.S. Rules for Successful Storefront Design</i></li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-outline" href="https://storefrontmastery.com">Go to the main page to see who we've worked with<span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="terms" class="mist">
   <div class="wrap">
     <p class="label">Travel, credits, and terms</p>
     <h2>What changes the number, and what does not.</h2>
@@ -529,8 +778,10 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
       <div>
         <h3>Credits and upgrades</h3>
         <ul>
-          <li>ALIGN: full fee credited toward ASSESS or ACTIVATE within 6 months. The ALIGN session counts as the ASSESS workshop, and the ASSESS findings session updates your joint pilot with the data.</li>
-          <li>ASSESS: full fee credited toward ACTIVATE within 12 months.</li>
+          <li>Corridor Diagnostic: a standalone product. Its fee is not credited toward other services. ACTIVATE includes its own Diagnostic walkthrough.</li>
+          <li>ALIGN + ASSESS package: the full $4,950 credited toward ACTIVATE within 6 months.</li>
+          <li>ASSESS on its own: the full $3,950 credited toward ACTIVATE within 6 months.</li>
+          <li>ALIGN on its own: not credited toward other services. Take it inside the package to keep the credit.</li>
           <li>ASSESS scorecards: $400 per storefront credited toward that storefront's Accelerator within 12 months.</li>
           <li>Code Friction Audit: full fee credited toward a Code Refresh within 6 months.</li>
         </ul>
@@ -541,16 +792,16 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
           <li>Two or more districts contracting together: 10% each.</li>
           <li>Full payment at signing: 5%.</li>
           <li>Districts with an annual budget under $300,000: up to 15% on ASSESS, ACTIVATE, or an Accelerator batch, in exchange for case-study and photo rights.</li>
-          <li>Combined reductions are capped at 15% and do not apply to ALIGN, the audit, or the Code Refresh.</li>
+          <li>Combined reductions are capped at 15% and do not apply to the Diagnostic, ALIGN on its own, the audit, or the Code Refresh.</li>
         </ul>
       </div>
       <div>
         <h3>Schedule</h3>
-        <p>Delivery in under three weeks from signed agreement and receipt of your data adds 15%. Standard timelines are agreed in the proposal.</p>
+        <p>Delivery in under three weeks from signed agreement and receipt of your data adds 15%. Standard timelines are agreed in the proposal. The Diagnostic report is always delivered the same day as the walk.</p>
       </div>
       <div>
         <h3>Scope and exclusions</h3>
-        <p>Storefront Mastery provides strategy, design direction, and implementation guidance. Legal advice, municipal adoption, enforcement, architectural drawings, construction documents, and engineered plans are outside the scope unless a proposal says otherwise.</p>
+        <p>Storefront Mastery provides diagnostics, strategy, design direction, and implementation guidance. Legal advice, municipal adoption, enforcement, architectural drawings, construction documents, and engineered plans are outside the scope unless a proposal says otherwise.</p>
       </div>
       <div>
         <h3>Validity</h3>
@@ -564,11 +815,77 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap">
+    <p class="label">Questions</p>
+    <h2>Common questions.</h2>
+    <div class="faq">
+      <details>
+        <summary>Where should we start?</summary>
+        <div class="a"><p>With the Corridor Diagnostic. In two hours on your street and a same-day report, you learn what is broken, block by block, and which fixes come first. From there, the findings point to the right next step, whether that is ALIGN, ASSESS, ACTIVATE, or implementation work.</p></div>
+      </details>
+      <details>
+        <summary>Does the Diagnostic fee count toward the Flagship Program?</summary>
+        <div class="a"><p>No. The Diagnostic is a standalone product with its own flat fee of $1,200, and it is not credited toward other services. ACTIVATE includes a Diagnostic of its own, walked with your downtown leaders and champions. The program tiers carry their own credits, listed under terms.</p></div>
+      </details>
+      <details>
+        <summary>How do the program prices add up?</summary>
+        <div class="a">
+          <p>ALIGN is $1,950 on its own. ASSESS is $3,950 on its own. Together, as the ALIGN + ASSESS package, they are $4,950. ACTIVATE is $13,800 and includes ALIGN and ASSESS.</p>
+          <p>Move up to ACTIVATE within 6 months and what you paid for ASSESS or the package comes off in full. The package is the best route: $4,950 now and $8,850 later adds up to the same $13,800. ALIGN bought on its own is not credited.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Which program tier is right for us?</summary>
+        <div class="a">
+          <p>Choose ALIGN if your board, staff, and businesses do not yet agree on priorities. Choose ASSESS if you are about to fund storefront improvements or a facade program and want each business to know where the money will do the most good. Choose ACTIVATE if you want a district strategy your partners can act on.</p>
+          <p>If you are unsure, tell us what you are trying to decide and we will recommend one.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Are design services included?</summary>
+        <div class="a"><p>Each ASSESS scorecard includes a design prescription for that storefront: one big decision, a palette, the sign text, and a window strategy. Full design direction for a storefront is the Storefront Accelerator, from $2,950 per storefront. Architectural drawings, construction documents, and permit sets are not included in any service.</p></div>
+      </details>
+      <details>
+        <summary>Can you help rewrite our sign and storefront rules?</summary>
+        <div class="a"><p>Yes. The Code Friction Audit shows where your current rules work against your street, and the Retail Design Code Refresh rewrites your signage, storefront, facade, and design-review provisions town-wide, with draft ordinance language for your municipal attorney. Legal review, adoption, and enforcement stay with the town.</p></div>
+      </details>
+      <details>
+        <summary>Can we pay for ASSESS out of our grant?</summary>
+        <div class="a"><p>Often, yes. Many programs allow administration or technical assistance costs, and some state funds budget for a paid program administrator. Check your grant agreement. We write the scope in your funder's language so it is easy to approve.</p></div>
+      </details>
+      <details>
+        <summary>What if an owner disagrees with the ranking?</summary>
+        <div class="a"><p>Owners choose which ranked upgrades to pursue. The ranking and the cost ranges stay as written, and your committee decides what the grant covers.</p></div>
+      </details>
+      <details>
+        <summary>Where do the cost ranges come from?</summary>
+        <div class="a"><p>From storefront projects we have guided and regional pricing. They frame the contractor quotes your program already asks for, so you can spot the one that is off.</p></div>
+      </details>
+      <details>
+        <summary>Do you rescore the storefronts after the work?</summary>
+        <div class="a"><p>No. The assessment sets the plan before the money goes out, and the reports double as the baseline you report against.</p></div>
+      </details>
+      <details>
+        <summary>¿Está disponible en español?</summary>
+        <div class="a"><p>Sí. Todos los servicios están disponibles en español, incluidos los reportes para los dueños de negocio.</p></div>
+      </details>
+      <details>
+        <summary>How does an engagement begin?</summary>
+        <div class="a"><p>Email us with your district's name and the street you have in mind. For the Diagnostic, we confirm a date. For everything else, we confirm what fits and send a fixed-price proposal. Work is scheduled once the agreement is signed. Engagements can be contracted by a district management corporation, a nonprofit, or a municipality.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="closing">
   <div class="wrap">
-    <h2>Tell us about your downtown.</h2>
-    <p>Send us the name of your district, the street you have in mind, and what you are trying to decide. We will recommend where to start and send a fixed-price proposal.</p>
-    <a class="btn" href="mailto:hello@storefrontmastery.com?subject=Program%20inquiry"><span class="dot"></span>hello@storefrontmastery.com</a>
+    <h2>Find out what's broken on your street.</h2>
+    <p>Send us the name of your district and the stretch of street you want read. We will confirm a date for your Corridor Diagnostic, and you will have the report the same day.</p>
+    <div class="btn-row" style="margin-top:0">
+      <a class="btn" href="mailto:hello@storefrontmastery.com?subject=Corridor%20Diagnostic%20booking"><span class="dot"></span>Book the Corridor Diagnostic</a>
+      <a class="btn btn-ghost" href="https://storefrontmastery.com">Go to the main page to see who we've worked with<span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
   </div>
 </section>
 
