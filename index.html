@@ -39,19 +39,42 @@ h1, h2, h3 { font-weight: 700; line-height: 1.1; text-wrap: balance; }
 p { max-width: 68ch; text-wrap: pretty; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
 
-/* nav */
-header.top { position: sticky; top: 0; z-index: 10; background: var(--navy); border-bottom: 1px solid rgba(143,203,255,0.18); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 1rem; }
+/* nav: inline when it fits, a menu button when it does not (measured by the script at the end of the page) */
+header.top { position: sticky; top: 0; z-index: 20; background: var(--navy); border-bottom: 1px solid rgba(143,203,255,0.18); }
+.top .wrap { display: flex; align-items: center; height: 64px; gap: 1rem; position: relative; max-width: 1360px; }
 .logo { display: flex; align-items: center; flex: none; }
 .logo img { height: 36px; width: auto; display: block; }
-.top nav { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.88rem; font-weight: 600; }
-.top nav a { color: #fff; text-decoration: none; display: inline-block; line-height: 1.2; padding: 0.55rem 0.6rem; border: 1px solid transparent; border-radius: 2px; white-space: nowrap; }
-.top nav a:hover { color: var(--window); }
-.top .site { border-color: rgba(255,255,255,0.45); padding-left: 0.9rem; padding-right: 0.9rem; margin-left: 0.6rem; }
-.top .site:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
-.top .cta { background: var(--blue); border-color: var(--blue); color: #fff; padding-left: 1rem; padding-right: 1rem; }
-.top .cta:hover { background: var(--signal); border-color: var(--signal); color: #fff; }
-.arrow { display: inline-block; margin-left: 0.35rem; }
+.menu { flex: 1 1 auto; min-width: 0; display: flex; justify-content: flex-end; align-items: center; gap: 0.25rem; font-size: 0.88rem; font-weight: 600; overflow: hidden; }
+.menu a { color: #fff; text-decoration: none; display: inline-block; line-height: 1.2; padding: 0.55rem 0.6rem; border: 1px solid transparent; border-radius: 2px; white-space: nowrap; }
+.menu a:hover { color: var(--window); }
+.menu .site { border-color: rgba(255,255,255,0.45); padding-left: 0.9rem; padding-right: 0.9rem; margin-left: 0.4rem; }
+.menu .site:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
+.nav-end { flex: none; display: flex; align-items: center; gap: 0.5rem; }
+.top .cta { font-size: 0.88rem; font-weight: 700; color: #fff; text-decoration: none; white-space: nowrap; background: var(--blue); border: 1px solid var(--blue); border-radius: 2px; padding: 0.55rem 1rem; line-height: 1.2; }
+.top .cta:hover { background: var(--signal); border-color: var(--signal); }
+.top .cta .short { display: none; }
+.burger { display: none; align-items: center; justify-content: center; gap: 0.45rem; height: 40px; padding: 0 0.8rem; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.45); border-radius: 2px; font: inherit; font-size: 0.88rem; font-weight: 700; cursor: pointer; }
+.burger:hover { border-color: #fff; }
+.burger .bars { width: 16px; height: 12px; position: relative; display: inline-block; }
+.burger .bars i { position: absolute; left: 0; right: 0; height: 2px; background: #fff; transition: transform 0.2s, opacity 0.2s, top 0.2s; }
+.burger .bars i:nth-child(1) { top: 0; }
+.burger .bars i:nth-child(2) { top: 5px; }
+.burger .bars i:nth-child(3) { top: 10px; }
+.top.open .burger .bars i:nth-child(1) { top: 5px; transform: rotate(45deg); }
+.top.open .burger .bars i:nth-child(2) { opacity: 0; }
+.top.open .burger .bars i:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+.top.compact .burger { display: inline-flex; }
+.top.compact .nav-end { margin-left: auto; }
+.top.compact .menu { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--navy); border-top: 1px solid rgba(143,203,255,0.18); border-bottom: 1px solid rgba(143,203,255,0.18); padding: 0.5rem 1rem 1rem; box-shadow: 0 18px 30px rgba(0,0,0,0.25); font-size: 1rem; max-height: calc(100vh - 64px); overflow-y: auto; }
+.top.compact.open .menu { display: flex; }
+.top.compact .menu a { padding: 0.85rem 0.25rem; border: 0; border-bottom: 1px solid rgba(143,203,255,0.15); border-radius: 0; }
+.top.compact .menu .site { margin: 0.75rem 0 0; border: 1px solid rgba(255,255,255,0.45); text-align: center; padding: 0.85rem; }
+@media (max-width: 420px) {
+  .top .cta .long { display: none; }
+  .top .cta .short { display: inline; }
+  .burger .burger-text { display: none; }
+  .top .wrap { gap: 0.6rem; }
+}
 
 /* hero */
 .hero { background: var(--navy); color: #fff; padding: 6rem 0 5rem; position: relative; overflow: hidden; }
@@ -194,14 +217,11 @@ body > footer a { color: #fff; font-weight: 600; text-decoration: none; }
 body > footer .sitebtn { border: 1px solid rgba(255,255,255,0.45); padding: 0.8rem 1.2rem; border-radius: 2px; display: inline-block; }
 body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 
-@media (max-width: 1440px) {
-  .top nav a.nav-x { display: none; }
-}
 @media (max-width: 1080px) {
-  .top nav a:not(.cta):not(.site) { display: none; }
   .why { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
+  .svc .p { white-space: normal; }
   .table-scroll { overflow: visible; border: 0; background: transparent; }
   table, tbody, tr, th, td { display: block; width: 100%; }
   thead { display: none; }
@@ -220,8 +240,6 @@ body > footer .sitebtn:hover { border-color: #fff; background: rgba(255,255,255,
   .prog.feature { margin: 1rem 0; }
   .prog, .svc { padding: 1.5rem 1.25rem; }
   .prog.feature { padding-top: 2.25rem; padding-bottom: 2rem; }
-  .top nav { gap: 0.5rem; font-size: 0.8rem; }
-  .top .cta { display: none; }
   .logo img { height: 30px; }
   section { padding: 3.75rem 0; }
   .hero { padding: 3.75rem 0 3.25rem; }
@@ -322,13 +340,6 @@ section.impl { background: var(--navy); color: #fff; border: 0; }
 .closing .btn.btn-ghost:hover { background: rgba(255,255,255,0.1); }
 
 /* v2.2b: situations, benefits, grant block */
-.fit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.fit a { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--rule); padding: 1.4rem 1.5rem; text-decoration: none; color: var(--ink); min-width: 0; }
-.fit a:hover { border-color: var(--blue); box-shadow: 0 10px 24px rgba(8,29,49,0.08); }
-.fit .sit { font-size: 1.08rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.5rem; }
-.fit .reason { color: var(--muted); font-size: 0.93rem; margin-bottom: 1rem; }
-.fit .pick { margin-top: auto; border-top: 1px solid var(--rule); padding-top: 0.7rem; font-weight: 700; color: var(--blue); font-size: 0.95rem; }
-.fit .pick span { color: var(--muted); font-weight: 600; }
 .gains { list-style: none; margin: 0 0 1.25rem; }
 .gains li { padding: 0.45rem 0 0.45rem 1.5rem; position: relative; font-size: 0.94rem; }
 .gains li::before { content: "+"; position: absolute; left: 0; top: 0.35rem; font-weight: 800; color: var(--red); font-size: 1.05rem; }
@@ -351,27 +362,29 @@ section.impl { background: var(--navy); color: #fff; border: 0; }
 .svc dl.uses { margin-top: 0.25rem; }
 .impl .lever .gains li { color: #D9E6F5; }
 @media (max-width: 900px) {
-  .fit, .dx-uses, .grant .cols { grid-template-columns: 1fr; }
+  .dx-uses, .grant .cols { grid-template-columns: 1fr; }
   .grant { padding: 1.6rem 1.25rem; }
 }
 </style>
 </head>
 <body>
 
-<header class="top">
+<header class="top" id="top-bar">
   <div class="wrap">
     <a class="logo" href="https://storefrontmastery.com" title="Go to storefrontmastery.com"><img src="storefront-mastery-logo-white.png" alt="Storefront Mastery home" width="119" height="36"></a>
-    <nav aria-label="Page sections">
+    <nav class="menu" id="site-menu" aria-label="Page sections">
       <a href="#diagnostic">Diagnostic</a>
-      <a href="#fit">Where to start</a>
       <a href="#programs">Flagship Program</a>
       <a href="#implementation">Implementation</a>
-      <a class="nav-x" href="#approach">Our approach</a>
-      <a class="nav-x" href="#terms">Terms</a>
+      <a href="#approach">Our approach</a>
+      <a href="#terms">Terms</a>
       <a href="#faq">FAQ</a>
       <a class="site" href="https://storefrontmastery.com">storefrontmastery.com<span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="cta" href="mailto:hello@storefrontmastery.com?subject=Corridor%20Diagnostic%20booking">Book a diagnostic</a>
     </nav>
+    <div class="nav-end">
+      <a class="cta" href="mailto:hello@storefrontmastery.com?subject=Corridor%20Diagnostic%20booking"><span class="long">Book a diagnostic</span><span class="short">Book</span></a>
+      <button class="burger" type="button" aria-controls="site-menu" aria-expanded="false"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="burger-text">Menu</span></button>
+    </div>
   </div>
 </header>
 
@@ -473,25 +486,6 @@ section.impl { background: var(--navy); color: #fff; border: 0; }
       <div><b>Know</b><p>Your report arrives the same day, with a clear view of what's broken and where to start.</p></div>
     </div>
     <p class="note">The Diagnostic is a standalone product with a flat fee of $1,200. Its fee is not credited toward other services. ACTIVATE includes its own Diagnostic, walked with your downtown leaders.</p>
-  </div>
-</section>
-
-<section id="fit" class="mist">
-  <div class="wrap">
-    <p class="label">Where to start</p>
-    <h2>Start from your situation.</h2>
-    <p class="sub">Find the line that sounds like your downtown right now. Each one points to the service built for it.</p>
-    <div class="fit">
-      <a href="#diagnostic"><p class="sit">"We don't know exactly what's wrong with our main street."</p><p class="reason">Get a block-by-block read and a ranked list of fixes the same day.</p><p class="pick">Corridor Diagnostic <span>· $1,200</span></p></a>
-      <a href="#assess"><p class="sit">"We just won a storefront or facade grant."</p><p class="reason">Assess every storefront before the first check goes out, so each grant buys a fix the street will notice.</p><p class="pick">ASSESS <span>· $3,950</span></p></a>
-      <a href="#align"><p class="sit">"Our board, staff, and businesses want different things."</p><p class="reason">Agree on priorities and a first joint pilot, then back it with storefront data.</p><p class="pick">ALIGN + ASSESS <span>· $4,950</span></p></a>
-      <a href="#activate"><p class="sit">"We need a district strategy we can fund and present."</p><p class="reason">Five strategies built from your own data, ready for a board, a council, or a funder.</p><p class="pick">ACTIVATE <span>· $13,800</span></p></a>
-      <a href="#accelerator"><p class="sit">"A business is ready to upgrade its storefront."</p><p class="reason">Design recommendations for the whole facade and a brief your contractor can quote from.</p><p class="pick">Storefront Accelerator <span>· from $2,950</span></p></a>
-      <a href="#marketing"><p class="sit">"We upgraded storefronts and nobody noticed."</p><p class="reason">A plan to tell the story of the upgrade and the people behind it, so customers come.</p><p class="pick">Marketing plan <span>· quoted per project</span></p></a>
-      <a href="#audit"><p class="sit">"Our code is fine," says the town.</p><p class="reason">Show where compliant storefronts still fail the street, before anyone is asked to change the rules.</p><p class="pick">Code Friction Audit <span>· $2,450</span></p></a>
-      <a href="#refresh"><p class="sit">"Our rules keep producing bad storefronts."</p><p class="reason">Rewrite the sign, storefront, facade, and design-review rules so every future storefront improves.</p><p class="pick">Retail Design Code Refresh <span>· $16,950</span></p></a>
-      <a href="#facilitation"><p class="sit">"We need everyone in one room to decide."</p><p class="reason">A facilitated working day to design a block, a cluster, or a pilot together.</p><p class="pick">Charrette <span>· $3,500 per day</span></p></a>
-    </div>
   </div>
 </section>
 
@@ -901,5 +895,41 @@ section.impl { background: var(--navy); color: #fff; border: 0; }
   </div>
 </footer>
 
+<script>
+(function () {
+  var bar = document.getElementById('top-bar');
+  var menu = document.getElementById('site-menu');
+  var btn = bar.querySelector('.burger');
+  function close() { bar.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  function fit() {
+    var wasOpen = bar.classList.contains('open');
+    bar.classList.remove('compact', 'open');
+    var need = 0, kids = menu.children, gap = parseFloat(getComputedStyle(menu).columnGap) || 0;
+    for (var i = 0; i < kids.length; i++) {
+      var cs = getComputedStyle(kids[i]);
+      need += kids[i].getBoundingClientRect().width + parseFloat(cs.marginLeft) + parseFloat(cs.marginRight);
+    }
+    need += gap * Math.max(0, kids.length - 1);
+    if (need > menu.clientWidth + 1) {
+      bar.classList.add('compact');
+      if (wasOpen) bar.classList.add('open');
+    } else {
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  }
+  btn.addEventListener('click', function () {
+    var open = bar.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  document.addEventListener('click', function (e) { if (!bar.contains(e.target)) close(); });
+  var last = 0;
+  function onResize() { if (window.innerWidth !== last) { last = window.innerWidth; fit(); } }
+  window.addEventListener('resize', onResize);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  onResize();
+})();
+</script>
 </body>
 </html>
